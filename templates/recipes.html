@@ -25,7 +25,11 @@
                   <div id=""><p>Serves: {{ recipe.serves }}</p></div>
                   <div id="starRating"><i class="small material-icons">grade</i><p>{{ recipe.star_rating_value }}</p></div>
                   <div id=""><p>Time taken: {{ recipe.time_taken }}</p></div>
-                  <div id="allergen"><span><p>{{ recipe.dietary_requirement_type }}</p></span></div>
+                  <ol>
+                    {% for allergen in recipe.dietary_requirement_type %}
+                      <li>{{ allergen }}</li>
+                      {% endfor %}
+                  </ol>
                 </div>
             </div>
         <div class="card-reveal">

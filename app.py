@@ -67,6 +67,7 @@ def insert_recipe():
     recipe=mongo.db.recipes
     ingreds=request.form.getlist('ingredients')
     method_steps=request.form.getlist('method')
+    diet_req=request.form.getlist('dietary_requirement_type')
     recipe_details = {
         'name_of_recipe':request.form['name_of_recipe'],
         'author':request.form['author'],
@@ -77,10 +78,12 @@ def insert_recipe():
         'ingredients': ingreds,
         'method':method_steps,
         'star_rating_value':request.form['star_rating_value'],
-        'dietary_requirement_type':request.form['dietary_requirement_type']
+        'dietary_requirement_type':diet_req
     }
     recipe.insert_one(recipe_details)
     return redirect(url_for('get_recipes'))
+
+# EDIT RECIPE, DISPLAYS SELECTED RECIPE
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -103,21 +106,27 @@ def edit_recipe(recipe_id):
                             difficulty_rating=difficulty_list,
                             star_rating=star_rating_list,
                             dietary_requirements=diet_req_list)
-    
+# UPDATES RECIPE   
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
-    recipe.update( {'_id': ObjectId(recipe_id)},
-    {
-        'name_of_recipe':request.form.get['name_of_recipe'],
-        'author':request.form.get['author'],
-        'serves': request.form.get['serves'],
-        'time_taken': request.form.get['time_taken'],
-        'season':request.form.get['season'],
-        'ingredients':request.form.get['ingredients'],
-        'method':request.form.get['season'],
-        'star_rating':request.form.get['star_rating']
+    ingreds=request.form.getlist('ingredients')
+    method_steps=request.form.getlist('method')
+    recipe.update_one( {'_id': ObjectId(recipe_id)}, 
+    {'$set':
+        {
+            'name_of_recipe':request.form['name_of_recipe'],
+            'author':request.form['author'],
+            'serves': request.form['serves'],
+            'time_taken': request.form['time_taken'],
+            'season':request.form['season'],
+            'difficulty_rating':request.form['difficulty_rating'],
+            'ingredients': ingreds,
+            'method': method_steps,
+            'star_rating_value':request.form['star_rating_value'],
+            'dietary_requirement_type':request.form['dietary_requirement_type']
+        }
     })
     return redirect(url_for('get_recipes'))
     
