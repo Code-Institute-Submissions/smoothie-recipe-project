@@ -1,12 +1,11 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
-      <h1>{{ recipes_total }}</h1>
 
   {% for recipe in recipes %}
   
   <div class="card col s12 m4">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator card-img" src="../static/img/pink.jpg">
+      <img class="activator card-img" src="../static/img/winter1.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{recipe.name_of_recipe}}<i class="material-icons right">more_vert</i></span>

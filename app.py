@@ -28,6 +28,39 @@ def get_seasons():
 def get_recipes():
     return render_template('recipes.html',
     recipes=mongo.db.recipes.find())
+    
+# FILTER SUMMER SMOOTHIES  
+
+@app.route('/get_summer')
+def get_summer():
+    return render_template('results.html',
+    recipes=mongo.db.recipes.find({"season" : "summer"}))
+
+# FILTER SUMMER SMOOTHIES  
+
+@app.route('/get_winter')
+def get_winter():
+    return render_template('results.html',
+    recipes=mongo.db.recipes.find({"season" : "winter"}))
+    
+@app.route('/recipes_by_season/<season>', methods=["POST"])
+def recipes_by_season(season):
+    """
+    Get all recipes of a chosen category and display
+    these recipes on one page
+    """
+    # Counts total amount of chosen category recipes
+    recipes_total = mongo.db.recipes.find({
+        "season": season
+    }).count()
+    return render_template(
+        "results.html",
+        recipes=mongo.db.recipes.find({"season": season}),
+        recipe=mongo.db.recipes.find(),
+        season=season,
+        recipes_total=recipes_total)
+        
+
 
 #....DISPLAYS ADD RECIPE PAGE ...............
 
@@ -41,28 +74,42 @@ def add_recipe():
 
 # ....SEARCH PAGE........................
 
-    
-
 @app.route('/search')
 def search():
-    return render_template('search-recipe.html', seasons=mongo.db.seasons.find(),
+    return render_template('search-recipe.html', recipe=mongo.db.recipe.find(), seasons=mongo.db.seasons.find(),
     difficulty_rating=mongo.db.difficulty_rating.find(),
     dietary_requirements=mongo.db.dietary_requirements.find(),
     star_rating=mongo.db.star_rating.find())
-    
-# #....SEARCH FILTER FUNCTION
 
-# @app.route('/search_result/<recipe_id>')
+
+#....SEARCH season FILTER FUNCTION
+# @app.route('/search_winter')
+# def search_winter():
+#     the_recipe=mongo.db.recipes.find({"season": "winter"})
+#     return render_template('results.html', recipe=the_recipe)
+
+# @app.route('/search_result', methods=['GET', 'POST'])
+# def search_result():
+#     search_term = []
+#     if request.method == 'POST':
+#         search_term = request.form['ingredients']
+#     return render_template('results.html', the_recipe=mongo.db.the_recipes.find_one({"ingredients": search_term}))
+    
+#....SEARCH FILTER FUNCTION
+
+
+# @app.route('/search_result/<recipe_id>', methods=["GET"])
 # def search_result(recipe_id):
 #     recipe=mongo.db.recipes
-#     recipe.find( {'_id': ObjectId(recipe_id)},
-#     {
-#         'author':request.form.get['author'],
-#         'season':request.form.get['season']})
+#     recipe.find( { "ingredients": "almond" } )
+
+#     # recipe.find( {'_id': ObjectId(recipe_id)},
+#     # {
+#     #     'author':request.form.get['author'],
+#     #     'season':request.form.get['season']})
 #     return redirect(url_for('get_recipes'))
 
 #....INSERTS IN TO DATABASE..............
-
 
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
