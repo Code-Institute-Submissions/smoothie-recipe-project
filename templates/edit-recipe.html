@@ -34,9 +34,11 @@
             </div>
             <div class="row field_wrapper">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">local_grocery_store</i> {% for ingred in recipe.ingredients %}
+                    <i class="material-icons prefix">local_grocery_store</i> 
+                    {% for ingred in recipe.ingredients %}
                     <input type="text" name="ingredients" value="{{ ingred }}" />
-                    <a href="javascript:void(0);" class="add_button validate"><i class="material-icons prefix">add</i></a> {% endfor %}
+                    <a href="javascript:void(0);" class="add_button validate"><i class="material-icons prefix">add</i></a> 
+                    {% endfor %}
                 </div>
             </div>
             <div class="input-field col s12 m6">
@@ -70,7 +72,7 @@
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">grade</i>
                 <select name="star_rating_value">
-                     <option value="Rate Recipe" disabled selected>Rate this Recipe</option>
+                     <option value="Rate Recipe" disabled >Rate this Recipe</option>
                      {% for star in star_rating %}
                          {% if star.star_rating_value == recipe.star_rating_value %}
                       <option value="{{star.star_rating_value}}" selected>{{star.star_rating_value}}</option>
@@ -83,11 +85,11 @@
             </div>
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">local_dining</i>
-                <select multiple name="dietary_requirement_type">
+               <select multiple name="dietary_requirement_type">
                     <option value="" disabled selected>Select Dietary Info</option>
                     {% for diet in dietary_requirements %}
                          {% if diet.dietary_requirement_type == recipe.dietary_requirement_type %}
-                         <option value="{{diet.dietary_requirement_type}}" selected>{{diet.dietary_requirement_type}}</option>
+                         <option value="{{diet.dietary_requirement_type}}" selected >{{diet.dietary_requirement_type}}</option>
                          {% else %}
                          <option value="{{diet.dietary_requirement_type}}">{{diet.dietary_requirement_type}}</option>
                          {% endif %}

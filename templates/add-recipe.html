@@ -77,9 +77,9 @@
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">local_dining</i>
                 <select multiple name='dietary_requirement_type'>
-                     <option value="">Select Dietary Info</option>
-                     {% for diet in dietary_requirements %}
-                          <option value="{{diet.dietary_requirement_type}}" required>{{diet.dietary_requirement_type}}</option>
+                    <option value="" disabled selected>Select Dietary Info</option>
+                     {% for allergen in dietary_requirements %}
+                          <option value="{{allergen.dietary_requirement_type}}" required>{{allergen.dietary_requirement_type}}</option>
                      {% endfor %}
                 </select>
                 <label>Please select Dietary Requirements</label>

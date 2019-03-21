@@ -113,6 +113,7 @@ def update_recipe(recipe_id):
     recipe = mongo.db.recipes
     ingreds=request.form.getlist('ingredients')
     method_steps=request.form.getlist('method')
+    diet_req=request.form.getlist('dietary_requirement_type')
     recipe.update_one( {'_id': ObjectId(recipe_id)}, 
     {'$set':
         {
@@ -125,7 +126,7 @@ def update_recipe(recipe_id):
             'ingredients': ingreds,
             'method': method_steps,
             'star_rating_value':request.form['star_rating_value'],
-            'dietary_requirement_type':request.form['dietary_requirement_type']
+            'dietary_requirement_type':diet_req
         }
     })
     return redirect(url_for('get_recipes'))
