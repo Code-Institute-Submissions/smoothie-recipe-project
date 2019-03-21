@@ -39,14 +39,16 @@ def add_recipe():
     dietary_requirements=mongo.db.dietary_requirements.find(),
     star_rating=mongo.db.star_rating.find())
 
-#....SEARCH PAGE........................
+# ....SEARCH PAGE........................
 
-# @app.route('/search')
-# def search():
-#     return render_template('search-recipe.html', seasons=mongo.db.seasons.find(),
-#     difficulty_rating=mongo.db.difficulty_rating.find(),
-#     dietary_requirements=mongo.db.dietary_requirements.find(),
-#     star_rating=mongo.db.star_rating.find())
+    
+
+@app.route('/search')
+def search():
+    return render_template('search-recipe.html', seasons=mongo.db.seasons.find(),
+    difficulty_rating=mongo.db.difficulty_rating.find(),
+    dietary_requirements=mongo.db.dietary_requirements.find(),
+    star_rating=mongo.db.star_rating.find())
     
 # #....SEARCH FILTER FUNCTION
 

@@ -86,14 +86,17 @@
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">local_dining</i>
                <select multiple name="dietary_requirement_type">
-                    <option value="" disabled selected>Select Dietary Info</option>
                     {% for diet in dietary_requirements %}
-                         {% if diet.dietary_requirement_type == recipe.dietary_requirement_type %}
-                         <option value="{{diet.dietary_requirement_type}}" selected >{{diet.dietary_requirement_type}}</option>
-                         {% else %}
-                         <option value="{{diet.dietary_requirement_type}}">{{diet.dietary_requirement_type}}</option>
-                         {% endif %}
+                    <option value="{{diet.dietary_requirement_type}}" {% if  diet.dietary_requirement_type in recipe.dietary_requirement_type%}selected {% endif %}>{{diet.dietary_requirement_type}}</option>
                     {% endfor %}
+                    <!--<option value="" disabled selected>Select Dietary Info</option>-->
+                    <!--{% for diet in dietary_requirements %}-->
+                    <!--     {% if diet.dietary_requirement_type == recipe.dietary_requirement_type %}-->
+                    <!--     <option value="{{diet.dietary_requirement_type}}" selected >{{diet.dietary_requirement_type}}</option>-->
+                    <!--     {% else %}-->
+                    <!--     <option value="{{diet.dietary_requirement_type}}">{{diet.dietary_requirement_type}}</option>-->
+                    <!--     {% endif %}-->
+                    <!--{% endfor %}-->
                 </select>
                 <label>Dietry Requirements</label>
             </div>
