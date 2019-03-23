@@ -10,25 +10,71 @@
 <body>
     <div class="container">
         <header>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="{{url_for('get_recipes')}}" class="brand-logo"></a>
-                <a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
-                    <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
-                    <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                    <li><a href="{{url_for('search')}}">Search</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Add Recipe</a></li>
-                    <li><a href="">View All Recipes</a></li>
-                    <li><a href="">Search</a></li>
-                </ul>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="{{url_for('get_recipes')}}" class="brand-logo"></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
+                        <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+                        <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+                        <li><a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>
+                        <li><a href="{{url_for('search')}}">Search</a></li>
+                    </ul>
+                </div>
+                <div class="">
+                  <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="large material-icons">search</i></a>
+                  <ul class="side-nav" id="mobile-demo">
+                    <li class="sidenav-header">
+                      <div class="row">
+                        <div class="col s12">
+                            <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign profile-image">
+                            <a class="btn-flat dropdown-button waves-effect waves-light" href="#" >Search Recipes By...<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li class="white">
+                      <ul class="collapsible collapsible-accordion">
+                          <li>
+                            <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body z-depth-3">
+                              <ul>
+                                <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
+                                <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
+                                <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
+                                <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
+             
+                                <li><div class="divider"></div></li>
+                              </ul>
+                            </div>
+                          </li>
+                      </ul>
+                    </li>
+        
+                    <li class="white">
+                      <ul class="collapsible collapsible-accordion">
+                        <li>
+                          <a class="collapsible-header waves-effect waves-blue">Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                          <div class="collapsible-body">
+                            <ul>
+                              <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
+                                <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
+                                <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
+                              <li><div class="divider"></div></li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
             </div>
         </nav>
     </header> 
+
+
+
+    
+    
     </div>
     <div class="container">
         {% block content %} 
