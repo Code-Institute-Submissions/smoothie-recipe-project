@@ -6,11 +6,8 @@ body {
     width: 100%;
     
 }
-
 .home {
-    position: relative;
-    top: 120px;
-    left: 40px;
+    margin-top: 90px;
 }
 
 h1, h3 {
@@ -46,9 +43,8 @@ h5 {
     margin-top: 5px;
 }
 
-form {
+#signIn {
     background: rgba(255,255,255,0.9);
-    padding: 20px;
 }
 
 .nav-wrapper {

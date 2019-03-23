@@ -36,7 +36,44 @@ def get_summer():
     return render_template('results.html',
     recipes=mongo.db.recipes.find({"season" : "summer"}))
 
+# SEARCH BY ALLERGEN
+
+@app.route('/search_dairyfree')
+def search_dairyfree():
+    return render_template('search-results.html',
+    recipes=mongo.db.recipes.find({"dietary_requirement_type": "dairy-free"}))
+    
+@app.route('/search_glutenfree')
+def search_glutenfree():
+    return render_template('search-results.html',
+    recipes=mongo.db.recipes.find({"dietary_requirement_type": "gluten-free"}))
+
+@app.route('/search_nutfree')
+def search_nutfree():
+    return render_template('search-results.html',
+    recipes=mongo.db.recipes.find({"dietary_requirement_type": "nut-free"}))
+    
+@app.route('/search_vegan')
+def search_vegan():
+    return render_template('search-results.html',
+    recipes=mongo.db.recipes.find({"dietary_requirement_type": "vegan"}))
+
 # FILTER SUMMER SMOOTHIES  
+
+@app.route('/search_easypeas')
+def search_easypeas():
+    return render_template('search-results.html',
+    recipes=mongo.db.recipes.find({"difficulty_rating": "easy peas"}))
+        
+@app.route('/search_someeffort')
+def search_someeffort():
+    return render_template('search-results.html',
+    recipes=mongo.db.recipes.find({"difficulty_rating": "some effort"}))
+
+@app.route('/search_worthfaff')
+def search_worthfaff():
+    return render_template('search-results.html',
+        recipes=mongo.db.recipes.find({"difficulty_rating": "worth all the faff"}))
 
 @app.route('/get_winter')
 def get_winter():
@@ -58,25 +95,6 @@ def get_spring():
     recipes=mongo.db.recipes.find({"season" : "spring"}))
     
 
-# @app.route('/recipes_by_season/<season>', methods=["POST"])
-# def recipes_by_season(season):
-#     """
-#     Get all recipes of a chosen category and display
-#     these recipes on one page
-#     """
-#     # Counts total amount of chosen category recipes
-#     recipes_total = mongo.db.recipes.find({
-#         "season": season
-#     }).count()
-#     return render_template(
-#         "results.html",
-#         recipes=mongo.db.recipes.find({"season": season}),
-#         recipe=mongo.db.recipes.find(),
-#         season=season,
-#         recipes_total=recipes_total)
-        
-
-
 #....DISPLAYS ADD RECIPE PAGE ...............
 
 @app.route('/add_recipe')
@@ -97,12 +115,6 @@ def search():
     star_rating=mongo.db.star_rating.find())
 
 
-#....SEARCH season FILTER FUNCTION
-# @app.route('/search_winter')
-# def search_winter():
-#     the_recipe=mongo.db.recipes.find({"season": "winter"})
-#     return render_template('results.html', recipe=the_recipe)
-
 # @app.route('/search_result', methods=['GET', 'POST'])
 # def search_result():
 #     search_term = []
@@ -116,13 +128,11 @@ def search():
 # @app.route('/search_result/<recipe_id>', methods=["GET"])
 # def search_result(recipe_id):
 #     recipe=mongo.db.recipes
-#     recipe.find( { "ingredients": "almond" } )
-
-#     # recipe.find( {'_id': ObjectId(recipe_id)},
-#     # {
-#     #     'author':request.form.get['author'],
-#     #     'season':request.form.get['season']})
-#     return redirect(url_for('get_recipes'))
+#     recipe.find( {'_id': ObjectId(recipe_id)},
+#     {
+#         'ingredients':request.form.get['ingredients'],
+#         'dietary_requirement_type':request.form.get['dietary_requirement_type']})
+#     return render_template('search-results.html', )
 
 #....INSERTS IN TO DATABASE..............
 
