@@ -51,10 +51,18 @@ h5 {
     padding: 0 0.5em;
 }
 
+nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0;
+}
+
 /*................................................Add Recipe Form*/
 
 .add_recipe_form {
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     margin-bottom: 30px;
 }
 
@@ -72,6 +80,19 @@ h5 {
 #signIn {
     background: rgba(255,255,255,0.9);
 }
+
+.add_button i,
+.add_method_button i {
+    position: relative;
+    left: 15px;
+}
+
+
+.edit_recipe_form {
+    background: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+}
+
 
 nav {
     background-color: #BA93A4;
@@ -125,6 +146,28 @@ nav {
 
 /*.....................................Footer*/
 
-footer {
+.page-footer {
     background: #BA93A4;
+}
+
+.dropdown-content .dropdown-content .active {
+        white-space: nowrap;
+    position: absolute;
+    left: 277.375px;
+    display: block;
+    opacity: 1;
+    top: 20px;
+}
+
+.dropdown-nested {
+			overflow-y: visible;
+		}
+
+.dropdown-content .dropdown-content {
+			margin-left: 100%;
+			
+		}
+		
+.dropdown-content li>a {
+    color: #000;
 }

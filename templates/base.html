@@ -21,13 +21,24 @@
     <header>
 
              <!--Dropdown Structure -->
-            <ul id="dropdown1" class="dropdown-content">
-                  <li><a href="#!">one</a></li>
-                  <li><a href="#!">two</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#!">three</a></li>
+            <ul id="dropdown1" class="dropdown-content dropdown-nested">
+                <li><a class="dropdown-trigger" href="#!" data-activates="dropdown2" data-hover="hover" data-alignment="left">Dietary Requirement<i class="material-icons right"> arrow_forward</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right"> arrow_forward</i></a></li>
+            </ul>   
+            
+            <ul class="dropdown-content dropdown-nested" id="dropdown3">
+                <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
+                <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
+                <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
             </ul>
             
+            <ul class="dropdown-content dropdown-nested" id="dropdown2">
+                <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
+                <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
+                <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
+                <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
+            </ul>
+  
             <!--Nav content-->
             <nav>
                 <div class="container">
@@ -35,10 +46,11 @@
                         <a href="#" class="brand-logo">Seasonal Smoothies</a>
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">search<i class="material-icons right">arrow_drop_down</i></a></li>
+
                             <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
                             <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
                             <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">search<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
                         <!--Side nav-->
                         <ul class="side-nav" id="mobile-demo">
@@ -101,27 +113,31 @@
   
         {% endblock %}
     </div>
+    
+      <!--Footer-->
       
-        <footer>
-            <div class="row">
-              <div class="col l6 s12">
-                <h6 class="white-text">Seasonal Smoothies</h6>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Seasons</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">All Recipes</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Add Recipe</a></li>
-                </ul>
-              </div>
+        <footer  class="page-footer">
+            <div class="container">
+                <div class="row">
+                  <div class="col l6 s12">
+                    <h6 class="white-text">Seasonal Smoothies</h6>
+                  </div>
+                  <div class="col l4 offset-l2 s12">
+                    <ul>
+                      <li><a class="grey-text text-lighten-3" href="#!">Seasons</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">All Recipes</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Add Recipe</a></li>
+                    </ul>
+                  </div>
+                </div>
             </div>
-      </footer>
+       </footer>
      <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(".dropdown-trigger").dropdown();
+            $(".dropdown-trigger").dropdown({constrainWidth: false});
             $('.collapsible').collapsible();
             $('select').material_select();
             $('.button-collapse').sideNav();
