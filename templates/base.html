@@ -2,8 +2,18 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seasonal Smoothies</title>
+    <!--Materialize css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Custom css-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 </head>
 
@@ -13,21 +23,21 @@
             <nav>
                 <div class="nav-wrapper">
                     <a href="{{url_for('get_recipes')}}" class="brand-logo"></a>
+                    <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>        -->
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
                         <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
                         <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                        <li><a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>
-                        <li><a href="{{url_for('search')}}">Search</a></li>
+                        <li><a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="large material-icons">search</i></a></li> 
+                        <!--<li><a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>-->
                     </ul>
                 </div>
                 <div class="">
-                  <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="large material-icons">search</i></a>
                   <ul class="side-nav" id="mobile-demo">
                     <li class="sidenav-header">
                       <div class="row">
                         <div class="col s12">
-                            <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign profile-image">
+                            <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign">
                             <a class="btn-flat dropdown-button waves-effect waves-light" href="#" >Search Recipes By...<i class="mdi-navigation-arrow-drop-down right"></i></a>
                         </div>
                       </div>
@@ -82,63 +92,12 @@
         {% endblock %}
       </div>
     <footer></footer>
+    <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, options);
-            var collapsibleElem = document.querySelector('.collapsible');
-            var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-          });
+    <!--custom JS-->
+    <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
 
-
-        $(document).ready(function() {
-            
-            $('.collapsible').collapsible();
-            $('select').material_select();
-            $('.button-collapse').sideNav();
-        });
-        
-        $(document).ready(function() {
-       
-            var maxField = 10; //Input fields increment limitation
-            var addButton = $('.add_button'); //Add button selector
-            var addMethod = $('.add_method_button');
-            var wrapper = $('.field_wrapper'); //Input field wrapper
-            var insert_field = $('.method_field');
-            var fieldHTML = '<div class="row"><div class="input-field field_wrapper col s12"><i class="material-icons prefix">local_grocery_store</i><input type="text" name="ingredients" value="" required/></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>'; //New input field html 
-            var methodHTML = '<div class="row"><div class="input-field method_field col s12"><i class="material-icons prefix">description</i><input name="method" id="method" type="text" class="validate" required/><label for="icon_prefix">Method</label></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>';
-            var x = 1; //Initial field counter is 1
-    
-            //Once add button is clicked
-            $(addButton).click(function(){
-                //Check maximum number of input fields
-                if(x < maxField){ 
-                    x++; //Increment field counter
-                    $(wrapper).append(fieldHTML); //Add field html
-                }
-            });
-            $(addMethod).click(function(){
-                if(x < maxField){
-                    x++;
-                    $(insert_field).append(methodHTML);
-                }
-            });
-
-            //Once remove button is clicked
-            $(wrapper).on('click', '.remove_button', function(e){
-            e.preventDefault();
-            $(this).parent('div').remove(); //Remove field html
-            x--; //Decrement field counter
-    });
-            $(insert_field).on('click', '.remove_button', function(e){
-            e.preventDefault();
-            $(this).parent('div').remove(); //Remove field html
-            x--; //Decrement field counter
-    });
-});
-    </script>
 </body>
 
 

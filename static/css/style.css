@@ -1,3 +1,4 @@
+/*..............................................General Styles*/
 body {
     background-image: url('../img/smoothie-main.jpg');
     background-repeat: no-repeat;
@@ -6,6 +7,12 @@ body {
     width: 100%;
     
 }
+
+/*remove margins to have continuous container throughout page*/
+
+.container .row {
+    margin:0;
+}
 .home {
     margin-top: 90px;
 }
@@ -13,14 +20,19 @@ body {
 h1, h3 {
     color: white;
     padding: 10px 10px;
-    background: rgba(20,26,36,0.5);
+    background: rgba(94,133,165,0.8);
 
 }
 
 h5 {
     color: white;
     padding: 5px 5px;
-    background: rgba(20,26,36,0.5);
+    background: #5F85A4;
+    opacity: .8;
+}
+
+.card {
+    height: 500px;
 }
 
 .card-title {
@@ -39,6 +51,18 @@ h5 {
     padding: 0 0.5em;
 }
 
+/*................................................Add Recipe Form*/
+
+form {
+    background: rgba(255,255,255,0.8);
+}
+
+.add_recipe_btn {
+    position: relative;
+    left: 20px;
+    background: #5E85A5;
+}
+
 .recipe_header {
     margin-top: 5px;
 }
@@ -51,9 +75,12 @@ h5 {
     background-color: #BA93A4;
 }
 
+/*.....................................Recipe Card Styles*/
 
 #starRating {
     float: right;
+    position: relative;
+    top: 15px;
 }
 
 #allergen {
@@ -62,4 +89,33 @@ h5 {
     width: 85px;
     color: green;
     text-align: center;
+}
+
+#recipeInfo {
+    font-size: 13px;
+    font-weight: 900;
+    position: absolute;
+    color: #BA93A4;
+    bottom: 10px;
+    right: 24px;
+}
+
+.edit {
+    position: absolute;
+    bottom: 10px;
+    left: 24px;
+}
+
+.edit p a {
+    padding: 5px;
+    border: 2px solid #5E85A5;
+    color: #000;
+    background: #BA93A4;
+}
+
+.edit p a:hover {
+
+    color: #fff;
+    background: #5E85A5;
+    border: 2px solid #BA93A4;
 }
