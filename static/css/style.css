@@ -53,14 +53,16 @@ h5 {
 
 /*................................................Add Recipe Form*/
 
-form {
+.add_recipe_form {
     background: rgba(255,255,255,0.8);
+    margin-bottom: 30px;
 }
 
 .add_recipe_btn {
     position: relative;
     left: 20px;
     background: #5E85A5;
+    margin-bottom: 20px;
 }
 
 .recipe_header {
@@ -71,7 +73,7 @@ form {
     background: rgba(255,255,255,0.9);
 }
 
-.nav-wrapper {
+nav {
     background-color: #BA93A4;
 }
 
@@ -118,4 +120,11 @@ form {
     color: #fff;
     background: #5E85A5;
     border: 2px solid #BA93A4;
+}
+
+
+/*.....................................Footer*/
+
+footer {
+    background: #BA93A4;
 }

@@ -33,7 +33,7 @@ def get_recipes():
 
 @app.route('/get_summer')
 def get_summer():
-    return render_template('results.html',
+    return render_template('summer-results.html',
     recipes=mongo.db.recipes.find({"season" : "summer"}))
 
 # SEARCH BY ALLERGEN

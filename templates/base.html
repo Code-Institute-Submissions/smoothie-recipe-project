@@ -18,85 +18,118 @@
 </head>
 
 <body>
-    <div class="container">
-        <header>
+    <header>
+
+             <!--Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+                  <li><a href="#!">one</a></li>
+                  <li><a href="#!">two</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#!">three</a></li>
+            </ul>
+            
+            <!--Nav content-->
             <nav>
-                <div class="nav-wrapper">
-                    <a href="{{url_for('get_recipes')}}" class="brand-logo"></a>
-                    <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>        -->
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
-                        <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
-                        <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                        <li><a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="large material-icons">search</i></a></li> 
-                        <!--<li><a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>-->
-                    </ul>
-                </div>
-                <div class="">
-                  <ul class="side-nav" id="mobile-demo">
-                    <li class="sidenav-header">
-                      <div class="row">
-                        <div class="col s12">
-                            <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign">
-                            <a class="btn-flat dropdown-button waves-effect waves-light" href="#" >Search Recipes By...<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                        </div>
-                      </div>
-                    </li>
-                    
-                    <li class="white">
-                      <ul class="collapsible collapsible-accordion">
-                          <li>
-                            <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
-                            <div class="collapsible-body z-depth-3">
-                              <ul>
-                                <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
-                                <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
-                                <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
-                                <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
-             
-                                <li><div class="divider"></div></li>
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo">Seasonal Smoothies</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
+                            <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+                            <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">search<i class="material-icons right">arrow_drop_down</i></a></li>
+                        </ul>
+                        <!--Side nav-->
+                        <ul class="side-nav" id="mobile-demo">
+                            <li>
+                              <div class="row">
+                                <div class="col s12">
+                                    <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign">
+                                </div>
+                              </div>
+                            </li>
+                            <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
+                            <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+                            <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+                            <li><div class="divider"></div></li>
+                            <li class="sidenav-header">
+                            <li class="white">
+                              <ul class="collapsible collapsible-accordion">
+                                  <li>
+                                    <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                                    <div class="collapsible-body z-depth-3">
+                                      <ul>
+                                        <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
+                                        <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
+                                        <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
+                                        <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
+                                        <li><div class="divider"></div></li>
+                                      </ul>
+                                    </div>
+                                  </li>
                               </ul>
-                            </div>
-                          </li>
-                      </ul>
-                    </li>
-        
-                    <li class="white">
-                      <ul class="collapsible collapsible-accordion">
-                        <li>
-                          <a class="collapsible-header waves-effect waves-blue">Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
-                          <div class="collapsible-body">
-                            <ul>
-                              <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
-                                <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
-                                <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
-                              <li><div class="divider"></div></li>
-                            </ul>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-            </div>
-        </nav>
+                            </li>
+                            <li class="white">
+                              <ul class="collapsible collapsible-accordion">
+                                <li>
+                                  <a class="collapsible-header waves-effect waves-blue">Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                                  <div class="collapsible-body">
+                                    <ul>
+                                      <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
+                                        <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
+                                        <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
+                                      <li><div class="divider"></div></li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
     </header> 
 
 
 
     
     
-    </div>
+    
     <div class="container">
         {% block content %} 
   
         {% endblock %}
-      </div>
-    <footer></footer>
-    <!--Materialize JS-->
+    </div>
+      
+        <footer>
+            <div class="row">
+              <div class="col l6 s12">
+                <h6 class="white-text">Seasonal Smoothies</h6>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Seasons</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">All Recipes</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Add Recipe</a></li>
+                </ul>
+              </div>
+            </div>
+      </footer>
+     <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-trigger").dropdown();
+            $('.collapsible').collapsible();
+            $('select').material_select();
+            $('.button-collapse').sideNav();
+        });
+    </script>
     <!--custom JS-->
     <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
+
 
 </body>
 
