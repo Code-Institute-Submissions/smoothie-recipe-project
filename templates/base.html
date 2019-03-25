@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--Google fonts-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <!--Custom css-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 </head>
@@ -46,7 +47,7 @@
                         <a href="#" class="brand-logo">Seasonal Smoothies</a>
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">search<i class="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
 
                             <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
                             <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
@@ -117,20 +118,29 @@
       <!--Footer-->
       
         <footer  class="page-footer">
-            <div class="container">
                 <div class="row">
-                  <div class="col l6 s12">
-                    <h6 class="white-text">Seasonal Smoothies</h6>
+                  <div id="footerHeader" class="col s12 l4">
+                    <h6 class="white-text footer_logo">Seasonal Smoothies</h6>
                   </div>
-                  <div class="col l4 offset-l2 s12">
-                    <ul>
+                  <div id="footerLinks" class="col s12 l4">
+                    <ul class="footer_links">
                       <li><a class="grey-text text-lighten-3" href="#!">Seasons</a></li>
                       <li><a class="grey-text text-lighten-3" href="#!">All Recipes</a></li>
                       <li><a class="grey-text text-lighten-3" href="#!">Add Recipe</a></li>
                     </ul>
                   </div>
+                  <div class="socials col s12 l4">
+                        <ul class="list-inline social-links">
+                            <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a target="_blank" href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+         
        </footer>
      <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
