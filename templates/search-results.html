@@ -44,7 +44,11 @@
     </div>
   </div>
   {% endfor %}
+  
 </div>
+<div class="row">
+    <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="back to recipes" value="Back to Recipes" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
+  </div>
 
 
 {% endblock %}

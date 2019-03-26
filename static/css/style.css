@@ -48,11 +48,25 @@ h5 {
 }
 
 .card {
-    height: 500px;
+    min-height: 500px;
+}
+
+.scroll-ingred {
+    height: 160px;
+    overflow: scroll;
+}
+
+.scroll-method {
+   height: 200px;
+    overflow: scroll; 
+}
+
+.season-card-title {
+    text-shadow: 1px 1px 5px black;
 }
 
 .card-title {
-    text-shadow: 1px 1px 5px black;
+    text-shadow: 0 1px 0;
 }
 
 .card-img {
@@ -167,7 +181,6 @@ cancel_btn {
     position: absolute;
     color: #BA93A4;
     bottom: 10px;
-    right: 24px;
 }
 
 .edit {
@@ -263,4 +276,15 @@ ul#dropdown1.dropdown-content.dropdown-nested.active{
     display: block;
     opacity: 1;
     top: 64px !important; 
+}
+
+#flashMessage {
+    background: pink;
+    padding: 20px;
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    bottom: 50%;
+    left: 25%;
+    z-index: 99;
 }

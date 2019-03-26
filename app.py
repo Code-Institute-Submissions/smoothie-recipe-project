@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, flash, render_template, redirect, request, url_for, session
 import json 
 from bson import json_util
 from bson.json_util import dumps
@@ -28,8 +28,11 @@ def get_seasons():
         username = request.form["username"]
         session["user"] = username
         return render_template('seasons.html')
-    return redirect(url_for('index'))  
-    
+    return redirect(url_for('seasons'))  
+
+@app.route('/seasons')
+def seasons():
+    return render_template('seasons.html')
     
 #....FINDS ALL RECIPES IN DATABASE & DISPLAYS THEM ON PAGE 
 
@@ -208,6 +211,7 @@ def update_recipe(recipe_id):
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
+    flash("DELETED ! Caution: this action is permanent!")
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
     
