@@ -255,3 +255,12 @@ footer p {
         color: #000;
     }
 }
+
+ul#dropdown1.dropdown-content.dropdown-nested.active{
+    white-space: nowrap;
+    position: absolute;
+    left: 387.547px;
+    display: block;
+    opacity: 1;
+    top: 64px !important; 
+}

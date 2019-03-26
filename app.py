@@ -7,7 +7,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.secret_key = os.urandom(29) #Generates random string which will encrypt the session cookie
+app.secret_key = 'some_secret' 
 app.config["MONGO_DBNAME"] = 'myrecipe'
 app.config["MONGO_URI"] ='mongodb://root:Rovrec1@ds119220.mlab.com:19220/myrecipe'
 
