@@ -25,6 +25,7 @@
             <ul id="dropdown1" class="dropdown-content dropdown-nested">
                 <li><a class="dropdown-trigger" href="#!" data-activates="dropdown2" data-hover="hover" data-alignment="left">Dietary Requirement<i class="material-icons right"> arrow_forward</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right"> arrow_forward</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-activates="dropdown4" data-hover="hover" data-alignment="left">By popularity<i class="material-icons right"> arrow_forward</i></a></li>
             </ul>   
             
             <ul class="dropdown-content dropdown-nested" id="dropdown3">
@@ -38,6 +39,12 @@
                 <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
                 <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
                 <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
+                    <li><a href="{{url_for('search_popular')}}">popularity</a></li>
+
+            </ul>
+            <ul class="dropdown-content dropdown-nested" id="dropdown4">
+                <li><a href="{{url_for('search_popular')}}">Most Popular first</a></li>
+                <li><a href="{{url_for('search_leastpopular')}}">Least Popular first</a></li>
             </ul>
   
             <!--Nav content-->
@@ -117,7 +124,7 @@
     
       <!--Footer-->
       
-        <footer  class="page-footer">
+        <footer class="page-footer">
                 <div class="row">
                   <div id="footerHeader" class="col s12 l4">
                     <h6 class="white-text footer_logo">Seasonal Smoothies</h6>
@@ -140,7 +147,6 @@
                         </ul>
                     </div>
                 </div>
-         
        </footer>
      <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

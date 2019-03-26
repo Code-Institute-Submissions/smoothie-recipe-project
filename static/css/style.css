@@ -19,7 +19,6 @@ body {
 
 h1, h3 {
     color: white;
-    padding: 10px 10px;
     background: rgba(94,133,165,0.8);
 
 }
@@ -77,6 +76,12 @@ nav .brand-logo {
     display: inline-block;
     font-size: 1rem;
     padding: 0;
+}
+
+/*Season Page*/
+
+h3 .season_heading {
+    padding: 15px;
 }
 
 /*................................................Add Recipe Form*/

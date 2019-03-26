@@ -39,7 +39,7 @@
       <div id="recipeInfo">
         <p>Serves: {{ recipe.serves }}</p>
         <p>Difficulty Rating: {{ recipe.difficulty_rating }}</p>
-        <p>Time taken: {{ recipe.time_taken }}</p>
+        <p>Time taken: {{ recipe.time_taken }} minutes</p>
       </div>
       <div class="edit">
         <p><a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit Recipe</a></p>
