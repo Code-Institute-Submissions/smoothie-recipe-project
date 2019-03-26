@@ -13,13 +13,20 @@
             <div class="row">
                 <div class="col s12 home">
                     <div class="row">
-                        <div class="col s12 col m8 home title">
+                        <div class="col s6 col l4 offset-l8 home title">
                             <h1>Seasonal Smoothies</h1>
-                            <h5>Enter your name to access Seasonal Smoothies</h5>
+                            <h5>Enter your name to access a world of Seasonal Smoothies!</h5>
                         </div>
-                    </div>  
+                    </div>
+                <div class="row">
+                <div class="col s6 col l4 offset-l8">
+                    <div class="site_description_text">
+                        <p>Check out our existing smoothies, or feel free to add your own recipe to the collection.</p>
+                    </div>
+                </div>
+            </div>
                     <div class="row">
-                        <form class="col s12 col m4" action="{{url_for('get_seasons')}}">
+                        <form class="col s12 col l4 offset-l8" action="{{url_for('get_seasons')}}" method="POST">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input id="signIn" type="text" name="username" />

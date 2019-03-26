@@ -1,10 +1,13 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
+import json 
+from bson import json_util
+from bson.json_util import dumps
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-
+app.secret_key = os.urandom(29) #Generates random string which will encrypt the session cookie
 app.config["MONGO_DBNAME"] = 'myrecipe'
 app.config["MONGO_URI"] ='mongodb://root:Rovrec1@ds119220.mlab.com:19220/myrecipe'
 
@@ -16,11 +19,17 @@ mongo = PyMongo(app)
 def index():
     return render_template('index.html')
 
-#....GET SEASON CATEGORIES
+
+#....GET SEASON CATEGORIES...provides username based on user input
    
-@app.route('/get_seasons')
+@app.route('/get_seasons', methods=["GET","POST"])
 def get_seasons():
-    return render_template('seasons.html')
+    if request.method == "POST":
+        username = request.form["username"]
+        session["user"] = username
+        return render_template('seasons.html')
+    return redirect(url_for('index'))  
+    
     
 #....FINDS ALL RECIPES IN DATABASE & DISPLAYS THEM ON PAGE 
 
@@ -57,6 +66,10 @@ def get_spring():
 def get_winter():
     return render_template('winter-results.html',
     recipes=mongo.db.recipes.find({"season" : "winter"}))
+
+# @app.route('/count_winter')
+# def count_winter():
+#     recipes=mongo.db.recipes.find({"season" : "winter"})).count()
 
 # SEARCH BY ALLERGEN
 
@@ -118,16 +131,6 @@ def add_recipe():
     difficulty_rating=mongo.db.difficulty_rating.find(),
     dietary_requirements=mongo.db.dietary_requirements.find(),
     star_rating=mongo.db.star_rating.find())
-
-# ....SEARCH PAGE........................
-
-@app.route('/search')
-def search():
-    return render_template('search-recipe.html', recipe=mongo.db.recipe.find(), seasons=mongo.db.seasons.find(),
-    difficulty_rating=mongo.db.difficulty_rating.find(),
-    dietary_requirements=mongo.db.dietary_requirements.find(),
-    star_rating=mongo.db.star_rating.find())
-
 
 
 #....INSERTS IN TO DATABASE..............
@@ -207,6 +210,26 @@ def update_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
+    
+# ................CHART
+    
+# @app.route("/donorsUS/projects")
+# def donor_projects():
+#     COLLECTION_NAME = 'recipes'
+#     FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
+#           'date_posted': True, 'total_donations': True, '_id': False}
+#     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
+#     # connection = MongoClient(MONGO_URI)
+#     #This connection is required when hosted using a remote mongo db.
+#     collection = connection[DBS_NAME][COLLECTION_NAME]
+#     projects = collection.find(projection=FIELDS, limit=55000)
+#     json_projects = []
+#     for project in projects:
+#         json_projects.append(project)
+#     json_projects = json.dumps(json_projects, default=json_util.default)
+#     connection.close()
+#     return json_projects
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

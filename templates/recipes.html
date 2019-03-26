@@ -1,8 +1,11 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
+  <div class="recipes_title">
+    <h3>All Smoothie Recipes</h3>
+  </div>
 
   {% for recipe in recipes %}
-  <div class="card large col s12 m6 xl4">
+  <div class="card large col s12 l6">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator card-img" src="../static/img/all-recipe.jpg">
     </div>

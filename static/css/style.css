@@ -1,11 +1,21 @@
+
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+
 /*..............................................General Styles*/
 body {
     background-image: url('../img/smoothie-main.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: auto;
     width: 100%;
-    
+    /*materialize code for sticky footer*/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/*materialize code for sticky footer*/
+main {
+    flex: 1 0 auto;
 }
 
 /*remove margins to have continuous container throughout page*/
@@ -14,13 +24,20 @@ body {
     margin:0;
 }
 .home {
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
-h1, h3 {
-    color: white;
-    background: rgba(94,133,165,0.8);
+h1 {
+    font-family: 'Amatic SC', cursive;
+    color: #fff;
+    font-size: 96px;
+}
 
+h3 {
+    color: #fff;
+    background: rgba(94,133,165,0.8);
+    font-family: 'Amatic SC', cursive;
+    padding: 10px;
 }
 
 h5 {
@@ -35,7 +52,7 @@ h5 {
 }
 
 .card-title {
-    text-shadow: 0 1px 0 black;
+    text-shadow: 1px 1px 5px black;
 }
 
 .card-img {
@@ -80,8 +97,12 @@ nav .brand-logo {
 
 /*Season Page*/
 
-h3 .season_heading {
-    padding: 15px;
+
+/*.................................................Index Page */
+
+.site_description_text {
+    background: rgba(255,255,255,0.9);
+
 }
 
 /*................................................Add Recipe Form*/
@@ -96,6 +117,10 @@ h3 .season_heading {
     left: 20px;
     background: #5E85A5;
     margin-bottom: 20px;
+}
+cancel_btn {
+    background: #5E85A5;
+    padding: 10px;
 }
 
 .recipe_header {
@@ -165,6 +190,9 @@ h3 .season_heading {
 
 
 /*.....................................Footer*/
+footer p {
+    font-size: 12px;
+}
 
 .page-footer {
     background: #BA93A4;
@@ -217,4 +245,13 @@ h3 .season_heading {
 .social-links li a i:hover {
         box-shadow: 0 0 24px 0 #5E85A5;
         color: #5E85A5;
+}
+
+
+/*media queries*/
+
+@media (min-width: 992px) {
+    h1 {
+        color: #000;
+    }
 }
