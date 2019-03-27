@@ -70,9 +70,7 @@ def get_winter():
     return render_template('winter-results.html',
     recipes=mongo.db.recipes.find({"season" : "winter"}))
 
-# @app.route('/count_winter')
-# def count_winter():
-#     recipes=mongo.db.recipes.find({"season" : "winter"})).count()
+
 
 # SEARCH BY ALLERGEN
 
@@ -211,7 +209,7 @@ def update_recipe(recipe_id):
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-    flash("DELETED ! Caution: this action is permanent!")
+    flash("DELETED ! <br> (Caution: please remember this action is permanent!)")
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
     

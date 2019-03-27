@@ -1,17 +1,17 @@
 {% extends 'base.html'%} 
 {% block content %}
   <div class="row">
-    <h3 class="season_heading">Welcome {{ session['user'] }} Pick your Season</h3>
+    <h3 class="season_heading">Welcome {{ session['user'] }}, pick your Season</h3>
   </div>
   <div class="row">
     <div class="col s12 m6">
-      <div class="card medium">
+      <div class="card medium">x
         <div class="card-image">
           <img src="../static/img/spring.jpg" class="card-img">
-          <span class="season-card-title">Spring Smoothies</span>
+          <span class="card-title season_title">Spring Smoothies</span>
         </div>
         <div class="card-content">
-          <p>Leap in to Spring with these rivitalising spring smoothies. Full of fresh flavours with hints of Summer just around the corner.</p>
+          <p>Leap in to Spring with these rivitalising spring smoothies. Full of fresh flavours with hints of the summer just around the corner.</p>
         </div>
         <div class="card-action">
           <a href="{{url_for('get_spring')}}" class="link">Find Smoothies</a>
@@ -22,7 +22,7 @@
       <div class="card medium">
         <div class="card-image">
           <img src="../static/img/pink.jpg" class="card-img">
-          <span class="season-card-title">Summer Smoothies</span>
+          <span class="card-title season_title">Summer Smoothies</span>
         </div>
         <div class="card-content">
           <p>Think fruity and fresh! These Summer smoothies will keep you going all summer long. Fresh berries and cooling, you won't be disappointed!</p>
@@ -38,7 +38,7 @@
       <div class="card medium">
         <div class="card-image">
           <img src="../static/img/autumn.jpg"class="card-img">
-          <span class="season-card-title">Autumn Smoothies</span>
+          <span class="card-title season_title">Autumn Smoothies</span>
         </div>
         <div class="card-content">
           <p>It's time to think cosy and autumninal. Our Autumn smoothies will warm you up and include some classic autumn flavours.</p>
@@ -52,7 +52,7 @@
       <div class="card medium">
         <div class="card-image">
           <img src="../static/img/winter1.jpg" class="card-img">
-          <span class="season-card-title">Winter Smoothies</span>
+          <span class="card-title season_title">Winter Smoothies</span>
         </div>
         <div class="card-content">
           <p>These winter wonders deliver a warm festive feeling to keep you going through the cold months! Fantastic flavours and goodness await..</p>
