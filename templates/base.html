@@ -96,7 +96,7 @@
                             <li class="white">
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header waves-effect waves-blue">Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                                        <a class="collapsible-header waves-effect waves-blue">Search by Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul>
                                                 <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
@@ -133,9 +133,7 @@
         </nav>
     </header>
 
-
-
-
+    <!--Main Article -->
 
     <main>
         
@@ -145,8 +143,12 @@
         </div>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
         <div id="flashMessage" class="row ">
-            <p class="message">{{ message }}</p>
-            <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="OK" value="OK" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
+            <div class="wrapper col s10 m4 offset-m4">   
+                <div class="">
+                    <p class="message">{{ message }}</p>
+                    <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="OK" value="OK" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
+                </div>
+            </div> 
         </div>
         {% endfor %} {% endif %} {% endwith %}
         </main>
@@ -179,6 +181,7 @@
             </div>
         </div>
     </footer>
+    
     <!--Materialize JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -198,7 +201,6 @@
 
     <!--custom JS-->
     <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
-
 
 </body>
 

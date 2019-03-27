@@ -148,10 +148,16 @@ cancel_btn {
     left: 15px;
 }
 
+/*.....................................Edit Recipe Form*/
+
+#editForm {
+    padding-top: 30px;
+}
 
 .edit_recipe_form {
     background: rgba(255,255,255,0.9);
     margin-bottom: 30px;
+    padding-top: 20px;
 }
 
 
@@ -258,7 +264,7 @@ footer p {
 }
 
 
-/*media queries*/
+/*Media queries*/
 
 @media (min-width: 992px) {
     h1 {
@@ -286,7 +292,5 @@ ul#dropdown1.dropdown-content.dropdown-nested.active{
     font-size: 15px;
     position: absolute;
     bottom: 50%;
-    left: 0;
-    right: 0;
     z-index: 99;
 }
