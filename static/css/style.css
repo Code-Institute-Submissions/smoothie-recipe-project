@@ -148,6 +148,10 @@ cancel_btn {
     left: 15px;
 }
 
+#addForm {
+    padding-top: 30px;
+}
+
 /*.....................................Edit Recipe Form*/
 
 #editForm {

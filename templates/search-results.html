@@ -1,9 +1,11 @@
-{% extends 'base.html'%} {% block content %}
+{% extends 'base.html'%} 
+{% block content %}
 <div class="row">
   <div class="recipes_title">
     <h3>Selected Recipes</h3>
   </div>
 
+  <!--Search Results -->
   {% for recipe in recipes %}
   <div class="card large col s12 m6 xl4">
     <div class="card-image waves-effect waves-block waves-light">
@@ -54,8 +56,8 @@
   
 </div>
 <div class="row">
-    <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="back to recipes" value="Back to Recipes" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
-  </div>
+  <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="back to recipes" value="Back to Recipes" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
+</div>
 
 
 {% endblock %}
