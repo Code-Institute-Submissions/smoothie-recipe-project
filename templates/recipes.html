@@ -5,52 +5,56 @@
   </div>
 
   {% for recipe in recipes %}
-  <div class="col s12 m6 xl4">  
-  <div class="card large">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator card-img" src="../static/img/all-recipe.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{recipe.name_of_recipe}}<i class="material-icons right">more_vert</i></span>
-      <div class="card-content grey lighten-4">
-        <div id="starRating"><i class="small material-icons">grade</i>
-          <p>{{ recipe.star_rating_value }}</p>
+  <div class="col s12 xl4">  
+    <div class="card large">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator card-img" src="../static/img/all-recipe.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{recipe.name_of_recipe}}</span>
+        <div class="card-content grey lighten-4">
+          <div id="starRating"><i class="small material-icons">grade</i>
+            <p>{{ recipe.star_rating_value }}</p>
+          </div>
+          <ul>
+            {% for allergen in recipe.dietary_requirement_type %}
+            <li>{{ allergen }}</li>
+            {% endfor %}
+          </ul>
+          <div id="recipeInfo">
+            <p>Serves: {{ recipe.serves }}</p>
+            <p>Difficulty Rating: {{ recipe.difficulty_rating }}</p>
+            <p>Time taken: {{ recipe.time_taken }} minutes</p>
+          </div>
+            <form method="POST" action="{{url_for('upvote', recipe_id=recipes._id)}}">
+                <button class="round blue" type="submit" name="upvote">Like</button> 
+            </form>
         </div>
-        <ul>
-          {% for allergen in recipe.dietary_requirement_type %}
-          <li>{{ allergen }}</li>
-          {% endfor %}
-        </ul>
+
       </div>
-      <div id="recipeInfo">
-        <p>Serves: {{ recipe.serves }}</p>
-        <p>Difficulty Rating: {{ recipe.difficulty_rating }}</p>
-        <p>Time taken: {{ recipe.time_taken }} minutes</p>
-      </div>
-    </div>
-    <div class="card-reveal">
-      <div class="scroll-ingreds">
-        <span class="card-title grey-text text-darken-4">Ingredients<i class="material-icons right">close</i></span>
-        <ul>
-          {% for ingredient in recipe.ingredients %}
-          <li><strong>{{ ingredient }}</strong></li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="scroll-method">
-        <h5>Method</h5>
-        <ol>
-          {% for method in recipe.method %}
-          <li>{{ method }}</li>
-          {% endfor %}
-        </ol>
-      </div>
-      <div class="edit">
-        <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="edit" value="Edit" onClick="window.location.href='{{url_for('edit_recipe', recipe_id=recipe._id)}}';" />	
-        <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="delete" value="Delete" onClick="window.location.href='{{url_for('delete_recipe', recipe_id=recipe._id)}}';" />	
+      <div class="card-reveal">
+        <div class="scroll-ingred">
+          <span class="card-title grey-text text-darken-4">Ingredients<i class="material-icons right">close</i></span>
+          <ul>
+            {% for ingredient in recipe.ingredients %}
+            <li><strong>{{ ingredient }}</strong></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="scroll-method">
+          <h5>Method</h5>
+          <ol>
+            {% for method in recipe.method %}
+            <li>{{ method }}</li>
+            {% endfor %}
+          </ol>
+        </div>
+        <div class="edit">
+          <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="edit" value="Edit" onClick="window.location.href='{{url_for('edit_recipe', recipe_id=recipe._id)}}';" />	
+          <input class="btn waves-effect waves-light red" type="button" name="delete" value="Delete" onClick="window.location.href='{{url_for('delete_recipe', recipe_id=recipe._id)}}';" />	
+        </div>
       </div>
     </div>
-  </div>
   </div> 
   {% endfor %}
 </div>

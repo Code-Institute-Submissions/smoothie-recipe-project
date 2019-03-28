@@ -33,6 +33,12 @@ h1 {
     font-size: 96px;
 }
 
+
+h6 {
+    font-family: 'Amatic SC', cursive;
+    color: #fff;
+}
+
 h3 {
     color: #fff;
     background: rgba(94,133,165,0.8);
@@ -41,7 +47,7 @@ h3 {
 }
 
 h5 {
-    color: white;
+    color: #fff;
     padding: 5px 5px;
     background: #5F85A4;
     opacity: .8;
@@ -124,12 +130,10 @@ nav .brand-logo {
 }
 
 .add_recipe_btn {
-    position: relative;
-    left: 20px;
     background: #5E85A5;
-    margin-bottom: 20px;
 }
-cancel_btn {
+
+.cancel_btn {
     background: #5E85A5;
     padding: 10px;
 }
@@ -185,9 +189,7 @@ cancel_btn {
 #recipeInfo {
     font-size: 13px;
     font-weight: 900;
-    position: absolute;
     color: #BA93A4;
-    bottom: 10px;
 }
 
 .edit {
@@ -226,6 +228,10 @@ footer p {
 #footerHeader, 
 #footerLinks{
     text-align: center;
+}
+
+#footerLinks p a {
+    padding: 0 10px;
 }
 
 .socials {
@@ -277,7 +283,15 @@ footer p {
     
     .home {
         margin-top: 50px;
-}
+    }   
+    #footerLinks p {
+        margin-top: 35px;
+    }
+    
+    #footerHeader p {
+        margin-top: 28px;
+    }
+
 }
 
 ul#dropdown1.dropdown-content.dropdown-nested.active{
@@ -297,4 +311,9 @@ ul#dropdown1.dropdown-content.dropdown-nested.active{
     position: absolute;
     bottom: 50%;
     z-index: 99;
+}
+
+.chart-container {
+  width: 300px;
+  height: 300px;
 }

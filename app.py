@@ -233,6 +233,53 @@ def delete_recipe(recipe_id):
 #     return json_projects
 
 
+@app.route('/pie_chart')
+def pie_chart():
+    
+    recipes=mongo.db.recipes.find()
+    data = {}
+    
+    for recipe in recipes:
+        
+        for diet in recipe.get('dietary_requirement_type',[]):
+            starting_count = data.get(diet,0)
+            data[diet] = starting_count + 1
+            
+    data_labels = []
+    data_values = []
+    
+    for k,v in data.items():
+        data_labels.append(k)
+        data_values.append(v)
+        
+    print("data_labels",json.dumps(data_labels), json.dumps(data_values))
+    return render_template('chart.html', data_labels=json.dumps(data_labels), data_values=json.dumps(data_values))
+
+@app.route('/star_chart')
+def star_chart():
+    
+    recipes=mongo.db.recipes.find()
+    data = {}
+    
+    for r in recipes:
+        
+        for star in r.get('season',[]):
+            starting_count = data.get(star,0)
+            data[star] = starting_count + 1
+            
+    data_labels = []
+    data_values = []
+    
+    for k,v in data.items():
+        data_labels.append(k)
+        data_values.append(v)
+        
+    #data_labels = ",".join(["'%s'" % l for l in data_labels])
+    print("data_labels",json.dumps(data_labels), json.dumps(data_values))
+    
+    return render_template('chart.html', data_labels=json.dumps(data_labels), data_values=json.dumps(data_values))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
