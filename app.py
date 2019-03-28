@@ -13,7 +13,7 @@ app.config["MONGO_URI"] ='mongodb://root:Rovrec1@ds119220.mlab.com:19220/myrecip
 
 mongo = PyMongo(app)
 
-#....HOME PAGE 
+#....LANDING PAGE 
 
 @app.route('/')
 def index():
@@ -30,18 +30,20 @@ def get_seasons():
         return render_template('seasons.html')
     return redirect(url_for('seasons'))  
 
+# SEASON PAGE 
+
 @app.route('/seasons')
 def seasons():
     return render_template('seasons.html')
     
-#....FINDS ALL RECIPES IN DATABASE & DISPLAYS THEM ON PAGE 
+#....FINDS ALL RECIPES IN DATABASE & DISPLAYS THEM ON PAGE TO USER 
 
 @app.route('/get_recipes')
 def get_recipes():
     return render_template('recipes.html',
     recipes=mongo.db.recipes.find())
     
-# FILTER SUMMER SMOOTHIES  
+# ....FILTERS SUMMER SMOOTHIE RECIPES 
 
 @app.route('/get_summer')
 def get_summer():
@@ -49,21 +51,21 @@ def get_summer():
     recipes=mongo.db.recipes.find({"season" : "summer"}))
 
  
-# FILTER AUTUMN SMOOTHIES  
+# ......FILTERS AUTUMN SMOOTHIE RECIPES 
 
 @app.route('/get_autumn')
 def get_autumn():
     return render_template('search-results.html',
     recipes=mongo.db.recipes.find({"season" : "autumn"}))
 
-# FILTER SPRING SMOOTHIES  
+# ......FILTERS SPRING SMOOTHIE RECIPES 
 
 @app.route('/get_spring')
 def get_spring():
     return render_template('search-results.html',
     recipes=mongo.db.recipes.find({"season" : "spring"}))
     
-# FILTER WINTER SMOOTHIES  
+# ......FILTERS WINTER SMOOTHIE RECIPES 
 
 @app.route('/get_winter')
 def get_winter():
@@ -72,7 +74,7 @@ def get_winter():
 
 
 
-# SEARCH BY ALLERGEN
+# ......SEARCH RECIPES BY ALLERGEN
 
 @app.route('/search_dairyfree')
 def search_dairyfree():
@@ -96,7 +98,7 @@ def search_vegan():
 
 
 
-# FILTER BY DIFFICULTY
+#....... SEARCH RECIPES BY DIFFICULTY
 
 @app.route('/search_easypeas')
 def search_easypeas():
@@ -113,6 +115,8 @@ def search_worthfaff():
     return render_template('search-results.html',
         recipes=mongo.db.recipes.find({"difficulty_rating": "worth all the faff"}))
 
+#..... SEARCH RECIPES BY POPULARITY / STAR RATING 
+
 @app.route('/search_popular')
 def search_popular():
     return render_template('search-results.html',
@@ -123,7 +127,7 @@ def search_leastpopular():
     return render_template('search-results.html',
     recipes=mongo.db.recipes.find( { '$query': {}, '$orderby': { 'star_rating_value' : 1 } } ))    
 
-#....DISPLAYS ADD RECIPE PAGE ...............
+#....DISPLAYS ADD RECIPE PAGE 
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -134,8 +138,7 @@ def add_recipe():
     star_rating=mongo.db.star_rating.find())
 
 
-
-#....INSERTS IN TO DATABASE..............
+#....INSERTS RECIPE INTO DATABASE
 
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
@@ -159,7 +162,7 @@ def insert_recipe():
     recipe.insert_one(recipe_details)
     return redirect(url_for('get_recipes'))
 
-# EDIT RECIPE, DISPLAYS SELECTED RECIPE
+# ........EDIT RECIPE, DISPLAYS SELECTED RECIPE
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -182,7 +185,8 @@ def edit_recipe(recipe_id):
                             difficulty_rating=difficulty_list,
                             star_rating=star_rating_list,
                             dietary_requirements=diet_req_list)
-# UPDATES RECIPE   
+                            
+# .........UPDATES RECIPE   
 
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
@@ -208,7 +212,7 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('get_recipes'))
     
-# ........DELETES RECIPE..............
+# ....................DELETES RECIPE
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -216,26 +220,8 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
     
-# ................CHART
+# ................DIETARY REQ CHART -shows user number of recipes that are eg nut free etc
     
-# @app.route("/donorsUS/projects")
-# def donor_projects():
-#     COLLECTION_NAME = 'recipes'
-#     FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
-#           'date_posted': True, 'total_donations': True, '_id': False}
-#     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
-#     # connection = MongoClient(MONGO_URI)
-#     #This connection is required when hosted using a remote mongo db.
-#     collection = connection[DBS_NAME][COLLECTION_NAME]
-#     projects = collection.find(projection=FIELDS, limit=55000)
-#     json_projects = []
-#     for project in projects:
-#         json_projects.append(project)
-#     json_projects = json.dumps(json_projects, default=json_util.default)
-#     connection.close()
-#     return json_projects
-
-
 @app.route('/pie_chart')
 def pie_chart():
     
@@ -256,30 +242,6 @@ def pie_chart():
         data_values.append(v)
         
     print("data_labels",json.dumps(data_labels), json.dumps(data_values))
-    return render_template('chart.html', data_labels=json.dumps(data_labels), data_values=json.dumps(data_values))
-
-@app.route('/star_chart')
-def star_chart():
-    
-    recipes=mongo.db.recipes.find()
-    data = {}
-    
-    for r in recipes:
-        
-        for star in r.get('season',[]):
-            starting_count = data.get(star,0)
-            data[star] = starting_count + 1
-            
-    data_labels = []
-    data_values = []
-    
-    for k,v in data.items():
-        data_labels.append(k)
-        data_values.append(v)
-        
-    #data_labels = ",".join(["'%s'" % l for l in data_labels])
-    print("data_labels",json.dumps(data_labels), json.dumps(data_values))
-    
     return render_template('chart.html', data_labels=json.dumps(data_labels), data_values=json.dumps(data_values))
 
 

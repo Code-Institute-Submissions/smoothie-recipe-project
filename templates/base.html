@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    
     <header>
 
         <!--Dropdown Structure -->
@@ -47,91 +48,94 @@
         </ul>
 
         <!--Nav content-->
-        <nav>
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a href="{{url_for('index')}}" class="brand-logo">Seasonal Smoothies</a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a href="{{url_for('pie_chart')}}">Stats</a></li>
-                        <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
-                        <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
-                        <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                    </ul>
-                    <!--Side nav-->
-                    <ul class="side-nav" id="mobile-demo">
+        <div class="navbar-fixed">
+            <nav>
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="{{url_for('index')}}" class="brand-logo">Seasonal Smoothies</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a href="{{url_for('pie_chart')}}">Stats</a></li>
+                            <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
+                            <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+                            <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--Side nav-->
+        <ul class="side-nav" id="mobile-demo">
+            <li>
+                <div class="row">
+                    <div class="col s12">
+                        <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign">
+                    </div>
+                </div>
+            </li>
+            <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
+            <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
+            <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+            <li><a href="{{url_for('pie_chart')}}">Stats</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li class="sidenav-header">
+                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
                         <li>
-                            <div class="row">
-                                <div class="col s12">
-                                    <img src="../static/img/all-recipe.jpg" alt="recipe image" class="responsive-img valign">
-                                </div>
+                            <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body z-depth-3">
+                                <ul>
+                                    <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
+                                    <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
+                                    <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
+                                    <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
+                                    <li>
+                                        <div class="divider"></div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
-                        <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
-                        <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
-                        <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                        <li><a href="{{url_for('pie_chart')}}">Stats</a></li>
+                    </ul>
+                </li>
+                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
                         <li>
-                            <div class="divider"></div>
-                        </li>
-                        <li class="sidenav-header">
-                            <li class="white">
-                                <ul class="collapsible collapsible-accordion">
+                            <a class="collapsible-header waves-effect waves-blue">Search by Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
+                                    <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
+                                    <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
                                     <li>
-                                        <a class="collapsible-header waves-effect waves-blue ">Search by Dietary Requirement <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
-                                        <div class="collapsible-body z-depth-3">
-                                            <ul>
-                                                <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
-                                                <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
-                                                <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
-                                                <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
-                                                <li>
-                                                <div class="divider"></div>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <div class="divider"></div>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="white">
-                                <ul class="collapsible collapsible-accordion">
-                                    <li>
-                                        <a class="collapsible-header waves-effect waves-blue">Search by Difficulty <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
-                                                <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
-                                                <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
-                                                <li>
-                                                    <div class="divider"></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="white">
-                                <ul class="collapsible collapsible-accordion">
-                                    <li>
-                                        <a class="collapsible-header waves-effect waves-blue">Search by Popularity <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
-                                        <div class="collapsible-body">
-                                            <ul>
-                                                <li><a href="{{url_for('search_popular')}}">Show Most Popular</a></li>
-                                                <li><a href="{{url_for('search_leastpopular')}}">Show Least Popular</a></li>
-                                                <li>
-                                                    <div class="divider"></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
+                            </div>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </nav>
+                </li>
+                <li class="white">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header waves-effect waves-blue">Search by Popularity <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{{url_for('search_popular')}}">Show Most Popular</a></li>
+                                    <li><a href="{{url_for('search_leastpopular')}}">Show Least Popular</a></li>
+                                    <li>
+                                        <div class="divider"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </li>
+        </ul>
+        
     </header>
 
     <!--Main Article -->
@@ -153,7 +157,7 @@
             </div> 
         </div>
         {% endfor %} {% endif %} {% endwith %}
-        </main>
+    </main>
 
     <!--Footer-->
 
@@ -176,9 +180,10 @@
             </div>
             <div id="footerLinks" class="col s12 l4">
                 <h6>Navigate</h6>
-                <p><a class="grey-text text-lighten-3" href="#!">Seasons</a>
-                <a class="grey-text text-lighten-3" href="#!"> All Recipes</a>
-                <a class="grey-text text-lighten-3" href="#!"> Add Recipe</a></p>
+                <p><a class="grey-text text-lighten-3" href="{{url_for('get_seasons')}}">Seasons</a>
+                <a class="grey-text text-lighten-3" href="{{url_for('get_recipes')}}"> All Recipes</a>
+                <a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}"> Add Recipe</a>
+                <a class="grey-text text-lighten-3" href="{{url_for('pie_chart')}}"> Stats</a></p>
             </div>
         </div>
     </footer>
@@ -201,45 +206,45 @@
         });
     </script>
     <script type="text/javascript">
- let myChart = document.getElementById('myChart').getContext('2d');
     
-    //Global Options
-    Chart.defaults.global.defaultFontFamily = 'Amatic SC';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#fff';
-    
-    let dietChart = new Chart(myChart, {
-       type:'pie',
-       data:{
-           labels: {{data_labels|safe}},
-           datasets: [{
-                label:'Dietary Requirement',
-                data:{{data_values|safe}},
-                hoverBorderColor: "#fff",
-                backgroundColor:[
-                  '#3e95cd', '#8e5ea2','#3cba9f','#e8c3b9','#c45850'
-                  ]
-           }]
-       },
-       options:{
-           title:{
-               display:true,
-               text: 'Dietary Requirements',
-               fontSize:32
+    let myChart = document.getElementById('myChart').getContext('2d');
+        
+        //Global Options
+        Chart.defaults.global.defaultFontFamily = 'Amatic SC';
+        Chart.defaults.global.defaultFontSize = 22;
+        Chart.defaults.global.defaultFontColor = '#000';
+        
+        let dietChart = new Chart(myChart, {
+           type:'pie',
+           data:{
+               labels: {{data_labels|safe}},
+               datasets: [{
+                    label:'Dietary Requirement',
+                    data:{{data_values|safe}},
+                    hoverBorderColor: "#fff",
+                    backgroundColor:[
+                      '#3e95cd', '#8e5ea2','#3cba9f','#e8c3b9','#c45850'
+                      ]
+               }]
            },
-           legend:{
-               position:'bottom'
-           },
-           layout:{
-               padding:{
-                   top:5,
-                   bottom: 5
+           options:{
+               title:{
+                   display:true,
+                   text: 'Dietary Requirements',
+                   fontSize:32
+               },
+               legend:{
+                   position:'bottom'
+               },
+               layout:{
+                   padding:{
+                       top:5,
+                       bottom: 5
+                   }
                }
            }
-       }
-    });
+        });
     </script>
 </body>
-
 
 </html>
