@@ -57,8 +57,10 @@
   {% endfor %}
   
 </div>
+<!--Navigation buttons-->
 <div class="row">
-  <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="back to recipes" value="Back to Recipes" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
+  <input class="btn waves-effect waves-light add_recipe_btn" type="button" name="see all recipes" value="See All Recipes" onClick="window.location.href='{{url_for('get_recipes')}}';" />	
+  <input class="btn waves-effect waves-light" type="button" name="see all seasons" value="See All Seasons" onClick="window.location.href='{{url_for('get_seasons')}}';" />	
 </div>
 
 

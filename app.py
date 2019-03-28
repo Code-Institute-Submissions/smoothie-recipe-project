@@ -45,7 +45,7 @@ def get_recipes():
 
 @app.route('/get_summer')
 def get_summer():
-    return render_template('summer-results.html',
+    return render_template('search-results.html',
     recipes=mongo.db.recipes.find({"season" : "summer"}))
 
  
@@ -53,21 +53,21 @@ def get_summer():
 
 @app.route('/get_autumn')
 def get_autumn():
-    return render_template('autumn-results.html',
+    return render_template('search-results.html',
     recipes=mongo.db.recipes.find({"season" : "autumn"}))
 
 # FILTER SPRING SMOOTHIES  
 
 @app.route('/get_spring')
 def get_spring():
-    return render_template('spring-results.html',
+    return render_template('search-results.html',
     recipes=mongo.db.recipes.find({"season" : "spring"}))
     
 # FILTER WINTER SMOOTHIES  
 
 @app.route('/get_winter')
 def get_winter():
-    return render_template('winter-results.html',
+    return render_template('search-results.html',
     recipes=mongo.db.recipes.find({"season" : "winter"}))
 
 

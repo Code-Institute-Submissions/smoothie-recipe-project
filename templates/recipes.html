@@ -26,9 +26,6 @@
             <p>Difficulty Rating: {{ recipe.difficulty_rating }}</p>
             <p>Time taken: {{ recipe.time_taken }} minutes</p>
           </div>
-            <form method="POST" action="{{url_for('upvote', recipe_id=recipes._id)}}">
-                <button class="round blue" type="submit" name="upvote">Like</button> 
-            </form>
         </div>
 
       </div>
