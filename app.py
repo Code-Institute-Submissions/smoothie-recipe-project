@@ -134,6 +134,7 @@ def add_recipe():
     star_rating=mongo.db.star_rating.find())
 
 
+
 #....INSERTS IN TO DATABASE..............
 
 @app.route('/insert_recipe', methods=["POST"])
