@@ -142,6 +142,7 @@ def insert_recipe():
     recipe=mongo.db.recipes
     ingreds_req=request.form.getlist('ingredients')
     method_steps=request.form.getlist('method')
+    method_steps_no_blanks = [i for i in method_steps if i != ""]
     diet_req=request.form.getlist('dietary_requirement_type')
     recipe_details = {
         'name_of_recipe':request.form['name_of_recipe'],
@@ -151,7 +152,7 @@ def insert_recipe():
         'season':request.form['season'],
         'difficulty_rating':request.form['difficulty_rating'],
         'ingredients': ingreds_req,
-        'method':method_steps,
+        'method':method_steps_no_blanks,
         'star_rating_value':request.form['star_rating_value'],
         'dietary_requirement_type':diet_req
     }
@@ -188,6 +189,7 @@ def update_recipe(recipe_id):
     recipe = mongo.db.recipes
     ingreds=request.form.getlist('ingredients')
     method_steps=request.form.getlist('method')
+    method_steps_no_blanks = [i for i in method_steps if i != ""]
     diet_req=request.form.getlist('dietary_requirement_type')
     recipe.update_one( {'_id': ObjectId(recipe_id)}, 
     {'$set':
@@ -199,7 +201,7 @@ def update_recipe(recipe_id):
             'season':request.form['season'],
             'difficulty_rating':request.form['difficulty_rating'],
             'ingredients': ingreds,
-            'method': method_steps,
+            'method': method_steps_no_blanks,
             'star_rating_value':request.form['star_rating_value'],
             'dietary_requirement_type':diet_req
         }

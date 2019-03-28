@@ -1,7 +1,9 @@
+/*Fonts*/
 
 @import url("https://fonts.googleapis.com/css?family=Amatic+SC");
 
 /*..............................................General Styles*/
+
 body {
     background-image: url('../img/smoothie-main.jpg');
     background-repeat: no-repeat;
@@ -14,6 +16,7 @@ body {
 }
 
 /*materialize code for sticky footer*/
+
 main {
     flex: 1 0 auto;
 }
@@ -21,8 +24,9 @@ main {
 /*remove margins to have continuous container throughout page*/
 
 .container .row {
-    margin:0;
+    margin: 0;
 }
+
 .home {
     margin-top: 100px;
 }
@@ -33,17 +37,16 @@ h1 {
     font-size: 96px;
 }
 
+h3 {
+    color: #fff;
+    background: rgba(94, 133, 165, 0.8);
+    font-family: 'Amatic SC', cursive;
+    padding: 10px;
+}
 
 h6 {
     font-family: 'Amatic SC', cursive;
     color: #fff;
-}
-
-h3 {
-    color: #fff;
-    background: rgba(94,133,165,0.8);
-    font-family: 'Amatic SC', cursive;
-    padding: 10px;
 }
 
 h5 {
@@ -54,7 +57,6 @@ h5 {
     font-size: 18px;
 }
 
-
 .btn_small {
     height: 24px;
     width: 60px;
@@ -63,22 +65,21 @@ h5 {
     padding: 0 0.5em;
 }
 
-/*...................................Nav*/
-
+/*.............................................Nav*/
 
 nav {
     background-color: #BA93A4;
 }
 
 .dropdown-nested {
-			overflow-y: visible;
-		}
+    overflow-y: visible;
+}
 
 .dropdown-content .dropdown-content {
-			margin-left: 100%;
-			
-		}
-		
+    margin-left: 100%;
+
+}
+
 .dropdown-content li>a {
     color: #000;
 }
@@ -97,40 +98,40 @@ nav .brand-logo {
     margin-left: 10px;
 }
 
-/*.....................................Recipe Card Styles*/
+.nav_btns i {
+    margin: 0 5px 10px 0;
+}
+
+.nav_btns i:hover {
+   background: #5E85A5;
+}
+
+/*moves search dropdown off navbar*/
+
+ul#dropdown1.dropdown-content.dropdown-nested.active {
+    white-space: nowrap;
+    position: absolute;
+    left: 387.547px;
+    display: block;
+    opacity: 1;
+    top: 64px !important;
+}
+
+/*...........................................Recipe Card Styles*/
 
 .card-img {
-    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
 }
 
 .all_recipes_card .card {
     min-height: 600px;
 }
 
-/*.scroll-ingred {*/
-/*    height: 260px;*/
-/*    overflow: scroll;*/
-/*}*/
-
-/*.scroll-method {*/
-/*   height: 240px;*/
-/*    overflow: scroll; */
-/*}*/
-
-
 #starRating {
     float: right;
     position: relative;
     top: 40px;
     right: 20px;
-}
-
-#allergen {
-    border: 1px solid green;
-    padding: 2px;
-    width: 85px;
-    color: green;
-    text-align: center;
 }
 
 #recipeInfo {
@@ -142,40 +143,47 @@ nav .brand-logo {
 
 .edit {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 24px;
 }
 
-.edit p a {
-    padding: 5px;
-    border: 2px solid #5E85A5;
-    color: #fff;
-    background: #BA93A4;
-}
-
-.edit p a:hover {
+.edit_btn {
     background: #5E85A5;
-    border: 2px solid #BA93A4;
 }
 
-
+#flashMessage {
+    background: #EDDDE5;
+    padding: 20px;
+    color: #FB1842;
+    font-size: 15px;
+    position: absolute;
+    bottom: 50%;
+    z-index: 99;
+}
 
 /*.................................................Index Page */
 
 .site_description_text {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
 
 }
 
 /*................................................Add Recipe Form*/
 
 .add_recipe_form {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     margin-bottom: 30px;
 }
 
 .add_recipe_btn {
     background: #5E85A5;
+    margin: 10px 0 20px 20px;
+}
+
+.cancel_update {
+    background: #AB778D;
+    margin: 10px 0 20px 20px;
+
 }
 
 .cancel_btn {
@@ -188,7 +196,7 @@ nav .brand-logo {
 }
 
 #signIn {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .add_button i,
@@ -208,16 +216,14 @@ nav .brand-logo {
 }
 
 .edit_recipe_form {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     margin-bottom: 30px;
     padding-top: 20px;
 }
 
 
-
-
-
 /*.....................................Footer*/
+
 footer p {
     font-size: 12px;
 }
@@ -231,8 +237,8 @@ footer p {
     display: inline-block;
 }
 
-#footerHeader, 
-#footerLinks{
+#footerHeader,
+#footerLinks {
     text-align: center;
 }
 
@@ -240,19 +246,6 @@ footer p {
     padding: 0 10px;
 }
 
-.socials {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.social-links {
-    display: inline-block;
-}
-
-.social-links li {
-    float: left;
-    display: inline-block;
-}
 
 /*social media icons*/
 
@@ -275,51 +268,40 @@ footer p {
 }
 
 .social-links li a i:hover {
-        box-shadow: 0 0 24px 0 #5E85A5;
-        color: #5E85A5;
+    box-shadow: 0 0 24px 0 #5E85A5;
+    color: #5E85A5;
 }
 
+.socials {
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-/*Media queries*/
+.social-links {
+    display: inline-block;
+}
+
+.social-links li {
+    float: left;
+    display: inline-block;
+}
+
+/*..................................Media queries*/
 
 @media (min-width: 992px) {
     h1 {
         color: #000;
     }
-    
+
     .home {
         margin-top: 50px;
-    }   
+    }
     #footerLinks p {
         margin-top: 35px;
     }
-    
+
     #footerHeader p {
         margin-top: 28px;
     }
 
-}
-
-ul#dropdown1.dropdown-content.dropdown-nested.active{
-    white-space: nowrap;
-    position: absolute;
-    left: 387.547px;
-    display: block;
-    opacity: 1;
-    top: 64px !important; 
-}
-
-#flashMessage {
-    background: #EDDDE5;
-    padding: 20px;
-    color: red;
-    font-size: 15px;
-    position: absolute;
-    bottom: 50%;
-    z-index: 99;
-}
-
-.chart-container {
-  width: 300px;
-  height: 300px;
 }
