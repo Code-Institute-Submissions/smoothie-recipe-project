@@ -352,6 +352,13 @@ footer p {
         margin-top: 28px;
     }
     
+    .chart_container {
+        position: relative;
+        height: 75vh;
+        width: 80vw;
+        margin: 20px auto;
+    }
+    
 }
 
 
