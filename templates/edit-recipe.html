@@ -37,7 +37,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">local_grocery_store</i> {% for ingred in recipe.ingredients %}
                     <input type="text" name="ingredients" value="{{ ingred }}" />
-                    <label for="icon_prefix">Ingredients</label> {% endfor %}
+                    <label for="icon_prefix">Add Ingredient</label> {% endfor %}
                 </div>
                 <a href="javascript:void(0);" class="add_button validate"><i class="material-icons prefix">add</i></a>
             </div>
@@ -64,7 +64,7 @@
                 <div class="input-field method_field col s12">
                     <i class="material-icons prefix">description</i> {% for method in recipe.method %}
                     <textarea name="method" id="method" class="materialize-textarea">{{ method }}</textarea>
-                    <label for="icon_prefix">Method</label> {% endfor %}
+                    <label for="icon_prefix">Add Method Step</label> {% endfor %}
                 </div>
                 <a href="javascript:void(0);" class="add_method_button validate"><i class="material-icons prefix">add</i></a>
             </div>

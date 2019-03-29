@@ -175,6 +175,17 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
     background: rgba(255, 255, 255, 0.9);
 }
 
+/*.................................................Seasons Page*/
+
+.season_title {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 24px;
+    text-shadow: 4px 3px 7px #000;
+}
 
 /*................................................Add Recipe Form*/
 

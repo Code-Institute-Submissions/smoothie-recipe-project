@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
-  <div class="recipes_title">
+<div class="recipes_title">
     <h3>Add Recipe</h3>
-  </div>
+</div>
 <div class="row">
     <form action="{{url_for('insert_recipe')}}" method="POST" class="col s12 add_recipe_form">
         <div id="addForm" class="row">
@@ -36,7 +36,7 @@
             <div class="input-field field_wrapper col s12">
                 <i class="material-icons prefix">local_grocery_store</i>
                 <input type="text" name="ingredients" class="validate" required />
-                <label for="icon_prefix">Ingredients</label>
+                <label for="icon_prefix">Add Ingredient</label>
             </div>
             <a href="javascript:void(0);" class="add_button validate"><i class="material-icons prefix">add</i></a>
         </div>
@@ -61,7 +61,7 @@
             <div class="input-field method_field col s12">
                 <i class="material-icons prefix">description</i>
                 <input name="method" id="method" type="text" class="validate" required/>
-                <label for="icon_prefix">Method</label>
+                <label for="icon_prefix">Add Method Step</label>
             </div>
             <a href="javascript:void(0);" class="add_method_button validate"><i class="material-icons prefix">add</i></a>
         </div>
