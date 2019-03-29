@@ -94,10 +94,12 @@ set sizes on Materialize and i came across issues fitting in all the information
 screen was resized to smaller screen sizes. It may be an idea in the future to create a link to a 'detailed recipe' page where there is more
 room to provide text. I chose not to implement this feature, mainly due to time but also because overall, Smoothie recipes do not
 contain longwinded Methods and so this was not priorortised in the project.
-Another issue on smaller screens is the pie chart. Although the chart renders fine on most sizes, it is very small for mobile and this will need further 
-research in to making this larger, in the future. 
+Another issue I came across was the size of the chart on smaller screens. Although the chart rendered fine on most sizes, it did not seem to show 
+on mobiles. I found a work around by getting rid of the container, this meant putting chart.html in full html format rather than using the jinja template.
+
 The site has also been been viewed in firefox and explorer browsers, with no obvious differences. 
-I sent the link to this project from heroku across to friends and family so they could check UI/UX using their devices and provide any feedback.
+I sent the link to this project from heroku across to friends and family so they could check UI/UX using their devices and provide any feedback. One piece of 
+feedback included the position of the plus and cancel ingredients/method symbols on the add recipe form. I adjusted these to make UX/UI better.
 
 CSS was tested using the W3C CSS Validation service with no resulting errors.
 Javascript was tested using JShint. There were several warnings in the code rendering the pie chart. This was regarding the use of '{' due to Jinja Templating. 
@@ -129,9 +131,8 @@ implemented with unordered list tags to produce the desired output.
 
 ### Deployment to Heroku 
 
-Open up <a herf="">heroku</a> and create a new app. Select Deploy.
+Open up heroku and create a new app. Select Deploy.
 In the command line login to Heroku using Heorku login command.
-
 
 Set config vars:
 IP 0.0.0.0
@@ -146,8 +147,9 @@ Select More tab and click re-start all dynos
 
 I spent a while trying to enable the following functions:
 1. Creating a card that successfully displayed ingredients and method from each recipe after submission to the database.
-2. 
-3. 
+2. Resizing the pie chart
+3. Iterating over Dietary Requirements so that the selected options are already in the input form when the user tries to edit a recipe - thanks to the good people at Code Institute for helping with this 
+4. Enabling my search dropdown and sidenav bar to work simultaneously - thanks to the good people at Code Institute for helping with this
 Stack Overflow was extremely useful in helping with these problems and provided me with the help I needed for the functions to work successfully.
 
 I also thank my tutor Maranatha for his useful tips, particularly giving me advice on how to create my graph, aswell as his review of the project. 

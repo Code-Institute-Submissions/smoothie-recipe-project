@@ -103,7 +103,7 @@ nav .brand-logo {
 }
 
 .nav_btns i:hover {
-   background: #5E85A5;
+    background: #5E85A5;
 }
 
 /*moves search dropdown off navbar*/
@@ -219,6 +219,7 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
 }
 
 /*styles for the add/remove ingredient/method buttons*/
+
 .add_button i,
 .add_method_button i {
 
@@ -323,6 +324,7 @@ footer p {
 }
 
 /*..................................Media queries*/
+
 @media (min-width: 767px) {
 
     #starRating {
@@ -331,7 +333,7 @@ footer p {
         top: 40px;
         right: 10px;
     }
-    
+
     #recipeInfo {
         position: relative;
         top: 0px;
@@ -343,7 +345,7 @@ footer p {
         color: #000;
     }
 
-    
+
     #footerLinks p {
         margin-top: 35px;
     }
@@ -351,14 +353,12 @@ footer p {
     #footerHeader p {
         margin-top: 28px;
     }
-    
+
     .chart_container {
         position: relative;
         height: 75vh;
         width: 80vw;
         margin: 20px auto;
     }
-    
+
 }
-
-
