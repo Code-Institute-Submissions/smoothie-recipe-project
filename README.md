@@ -46,6 +46,10 @@ corresponding field value will be returned on the Search Results page.
 The Navigation of this site has been thought about carefully. There are links to each part of the site in the navbar and the footer. There is a 
 sidenav bar tailored for smaller screens which contains the same information as the navbar. The navbar contains dropdown options which include a hover feature 
 for the submenus. 
+The option to view all recipes is present on the navbars (and footer), these results are displayed in date added order, with the most recent recipe 
+displayed at the top. This creates a better UX as it means after a new recipe is added, the user can see their recipe straight away preventing the otherwise
+random default order that would occur. 
+
 
 The site has been designed to allow the user to filter through the recipes. Although season is the primary focus, users are able to search 
 recipes based on their diet requirements, difficulty of the recipe and by star rating (popularity). 

@@ -205,46 +205,6 @@
             $('.button-collapse').sideNav();
         });
     </script>
-    <script type="text/javascript">
-    
-    let myChart = document.getElementById('myChart').getContext('2d');
-        
-        //Global Options
-        Chart.defaults.global.defaultFontFamily = 'Amatic SC';
-        Chart.defaults.global.defaultFontSize = 22;
-        Chart.defaults.global.defaultFontColor = '#000';
-        
-        let dietChart = new Chart(myChart, {
-           type:'pie',
-           data:{
-               labels: {{data_labels|safe}},
-               datasets: [{
-                    label:'Dietary Requirement',
-                    data:{{data_values|safe}},
-                    hoverBorderColor: "#fff",
-                    backgroundColor:[
-                      '#3e95cd', '#8e5ea2','#3cba9f','#e8c3b9','#c45850'
-                      ]
-               }]
-           },
-           options:{
-               title:{
-                   display:true,
-                   text: 'Dietary Requirements',
-                   fontSize:32
-               },
-               legend:{
-                   position:'bottom'
-               },
-               layout:{
-                   padding:{
-                       top:5,
-                       bottom: 5
-                   }
-               }
-           }
-        });
-    </script>
 </body>
 
 </html>
