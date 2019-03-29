@@ -7,7 +7,7 @@
   <!--Filtered Results Shown -->
   
   {% for recipe in recipes %}
-  <div class="col s12 xl6 all_recipes_card">
+  <div class="col s12 l6 all_recipes_card">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator card-img" src="../static/img/all-recipe.jpg">
@@ -20,7 +20,7 @@
         <div class="card-content grey lighten-4">
           <ul>
             {% for allergen in recipe.dietary_requirement_type %}
-            <li>{{ allergen }}</li>
+            <li>{{ allergen|capitalize }}</li>
             {% endfor %}
           </ul>
           <div id="recipeInfo">

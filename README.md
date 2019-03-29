@@ -10,7 +10,7 @@ The site is aimed at people with an interest and/or curiousity about the many ty
 ## UX
 
 The project has been designed in a way to entice users to view smoothie recipes and add/edit their own recipes. The colour scheme has therefor been 
-carefully thought about and I think this has a 'fresh fruit undertone' to the whole site! 
+carefully thought about and I think this has a 'fresh undertone' to the whole site! 
 
 As a user I want to be informed of the purpose of the site. The landing page of this project provides a clear description of what lies inside the site. 
 There is a user login form (although for the purpose of this project, this does not need to be securely authenticated), 
@@ -21,7 +21,7 @@ all necessary links to the site. The navbar has been created with an attractive 
 As a user I also would like to filter results, and so a 'search by' section has been created separating the categories to suit the users desires. 
 Dietary requirements, difficulty and highest star rating have been chosen as key search features, alongside the more prominant Season filter.
 
-I would like to see some visual data, therefore I have implemndted a pie chart to show users how many recipes include the various dietary requirements. I chose to 
+I would like to see some visual data, therefore I have implemented a pie chart to show users how many recipes include the various dietary requirements. I chose to 
 create a chart showing the dietary requirement breakdown, as this is often high up on people's interest/concern.
 
 One of the benefits to this site is that users can add their own recipes. As a user I would want this form to be clear, concise and easy to use. 
@@ -31,8 +31,8 @@ ability to edit a recipe, and to completely remove a recipe.
 I would of course like to see the usual social media icons to accompany the website, to reassure me of the company's presence on different social media platforms.
 These should be easy to find, stand out, but be in keeping with the design and feel of the website. 
 
-Wireframes can be found in the wireframes folder.
-Data Schema can be found in the data schema folder.
+Wireframes for this project can be found in the wireframes folder.
+An example of the data Schema used can be found in the schema folder.
 
 ## Features
 
@@ -47,10 +47,9 @@ corresponding field value will be returned on the Search Results page.
 The Navigation of this site has been thought about carefully. There are links to each part of the site in the navbar and the footer. There is a 
 sidenav bar tailored for smaller screens which contains the same information as the navbar. The navbar contains dropdown options which include a hover feature 
 for the submenus. 
-The option to view all recipes is present on the navbars (and footer), these results are displayed in date added order, with the most recent recipe 
+The option to view all recipes is present on the navbars (and footer), these results are displayed in 'date added' order, with the most recent recipe 
 displayed at the top. This creates a better UX as it means after a new recipe is added, the user can see their recipe straight away preventing the otherwise
 random default order that would occur. 
-
 
 The site has been designed to allow the user to filter through the recipes. Although season is the primary focus, users are able to search 
 recipes based on their diet requirements, difficulty of the recipe and by star rating (popularity). 
@@ -72,7 +71,7 @@ The site enables users to search for the most popular recipes, this has been cre
 I would like to implement a more effective way of determining popularity in the future, by creating an upvote function. 
 
 In the future, I will create a secure authenticatation feature for this site, this is particularly important 
-given anyone can edit/delete any of the recipes!
+given anyone can edit/delete the recipes!
 
 ## Technologies Used
 
@@ -89,10 +88,10 @@ Heroku for deployment
 ## Testing
 
 Testing of this website was carried out continuously, with extensive use in google chrome dev tools to ensure the site remained
-responsive and functioned as intended. The site has been checked all all screen sizes / devices available in chrome devs. 
+responsive and functioned as intended. The site has been checked on all screen sizes / devices available in chrome devs. 
 One of the main issues I experienced was the sizing and layout of the card. I chose to use a card-reveal for each recipe. These are
 set sizes on Materialize and i came across issues fitting in all the information I wanted on each card, particularly as the 
-screen was resized to smaller screen sizes. It may be an idea in the future to create a link to a 'detailed recipe' page where there is more
+screen was resized smaller. It may be an idea in the future to create a link to a 'detailed recipe' page where there is more
 room to provide text. I chose not to implement this feature, mainly due to time but also because overall, Smoothie recipes do not
 contain longwinded Methods and so this was not priorortised in the project.
 Another issue I came across was the size of the chart on smaller screens. Although the chart rendered fine on most sizes, it did not seem to show 
@@ -104,15 +103,14 @@ feedback included the position of the plus and cancel ingredients/method symbols
 
 CSS was tested using the W3C CSS Validation service with no resulting errors.
 Javascript was tested using JShint. There were several warnings in the code rendering the pie chart. This was regarding the use of '{' due to Jinja Templating. 
-This does result in an error in console and so it had been noticed already. This error can be eliminated by wrapping the jinja template
+This does result in an error in console and so it had been noticed initially. This error can be eliminated by wrapping the jinja template
 containing 'data labels' and 'data values' in quotations, however the chart does not then render in the browser and so I have left these errors
-present for the time being. Further research will be required to figure out another way.
+present for the time being to ensure the chart is displayed. Further research will be required to figure out another way.
 The rest of the javascript in this project did not throw up any errors.
 
 Forms were tested multiple times and after some advice from my mentor, the initial Username form on the landing page was set to 'required'.
-The form uses JS to create a new field with the click of the plus sign, enabling the user to add ingredients gradually rather than bulk text. 
-This created a few layout problems, but with careful re-orginasation of my divs, I was able to tidy this up. There is an on-going issue with 
-the alignment of the cross (cancel/remove) method step which will need looking in to further. 
+The add/edit recipe forms use JS to create a new field with the click of the plus sign, enabling the user to add ingredients gradually rather than bulk text. 
+This created a few layout problems, but with careful re-orginasation of my divs, I was able to tidy this up.
 
 Functions in app.py were tested using print statements initially, in the console. I was also able to check functions for inserting in to the 
 database were working correctly by live viewing mlab (see below).
@@ -124,13 +122,17 @@ Once mlab had been successfully set up and connected to my project (<a href="htt
 point. The function to display all recipes on the page was then tested frequently to ensure all recipes were displayed correctly.
 There were a few issues I came across at this point. including how to go about displaying ingredients in a listed format. My original
 code produced only individual letters of the ingredients, followed by a long continuous list. 
-This was solved by the help of Slack and a refresh in extracting data in json format from the database, and the use of .getlist was 
+This was solved by the help of Slack and a refresh in extracting data from the database, and the use of .getlist was 
 implemented with unordered list tags to produce the desired output.
 
 
 ## Deployment
 
 ### Deployment to Heroku 
+
+This project has been deployed to Heroku.
+
+The following steps to achieve this are as follows:
 
 Open up heroku and create a new app. Select Deploy.
 

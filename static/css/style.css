@@ -65,6 +65,10 @@ h5 {
     padding: 0 0.5em;
 }
 
+.wrapper {
+    text-align: center;
+}
+
 /*.............................................Nav*/
 
 nav {
@@ -230,6 +234,7 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
     font-size: 40px;
 }
 
+
 a.remove_button.validate {
     position: relative;
     top: 27px;
@@ -252,6 +257,8 @@ a.remove_button.validate {
     margin-bottom: 30px;
     padding-top: 20px;
 }
+
+/*.......................................Pie Chart Page */
 
 .chart_container {
     background: rgba(255, 255, 255, 0.9);
@@ -331,7 +338,6 @@ footer p {
         float: right;
         position: relative;
         top: 40px;
-        right: 10px;
     }
 
     #recipeInfo {

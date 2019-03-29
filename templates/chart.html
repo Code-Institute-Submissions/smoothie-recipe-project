@@ -29,18 +29,16 @@
             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown3" data-hover="hover" data-alignment="left">Difficulty<i class="material-icons right"> arrow_forward</i></a></li>
             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown4" data-hover="hover" data-alignment="left">By popularity<i class="material-icons right"> arrow_forward</i></a></li>
         </ul>
-
-        <ul class="dropdown-content dropdown-nested" id="dropdown3">
-            <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
-            <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
-            <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
-        </ul>
-
         <ul class="dropdown-content dropdown-nested" id="dropdown2">
             <li><a href="{{url_for('search_dairyfree')}}">Dairy-Free</a></li>
             <li><a href="{{url_for('search_glutenfree')}}">Gluten-Free</a></li>
             <li><a href="{{url_for('search_nutfree')}}">Nut-Free</a></li>
             <li><a href="{{url_for('search_vegan')}}">Vegan</a></li>
+        </ul>
+        <ul class="dropdown-content dropdown-nested" id="dropdown3">
+            <li><a href="{{url_for('search_easypeas')}}">Easy Peas</a></li>
+            <li><a href="{{url_for('search_someeffort')}}">Some Effort</a></li>
+            <li><a href="{{url_for('search_worthfaff')}}">Worth all the Faff</a></li>
         </ul>
         <ul class="dropdown-content dropdown-nested" id="dropdown4">
             <li><a href="{{url_for('search_popular')}}">Show Most Popular</a></li>
@@ -52,7 +50,7 @@
             <nav>
                 <div class="container">
                     <div class="nav-wrapper">
-                        <a href="{{url_for('index')}}" class="brand-logo">Seasonal Smoothies</a>
+                        <a href="{{url_for('get_seasons')}}" class="brand-logo">Seasonal Smoothies</a>
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a class="dropdown-trigger" href="#!" data-activates="dropdown1">Search<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -74,10 +72,10 @@
                     </div>
                 </div>
             </li>
-            <li><a href="{{url_for('get_seasons')}}">Seasons</a></li>
             <li><a href="{{url_for('get_recipes')}}">View all Recipes</a></li>
             <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
             <li><a href="{{url_for('pie_chart')}}">Stats</a></li>
+            <li><a href="{{url_for('index')}}">Log Out</a></li>
             <li>
                 <div class="divider"></div>
             </li>
@@ -179,7 +177,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <!--custom JS-->
     <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/chart.js')}}"></script>
     <script>
         // Materialize Navigation
         $(document).ready(function() {
