@@ -207,14 +207,22 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
     background: rgba(255, 255, 255, 0.9);
 }
 
+/*styles for the add/remove ingredient/method buttons*/
 .add_button i,
 .add_method_button i {
 
     position: relative;
-    right: 15px;
+    right: 35px;
     float: right;
-    bottom: 60px;
-    font-size: 32px;
+    bottom: 58px;
+    font-size: 40px;
+}
+
+a.remove_button.validate {
+    position: relative;
+    top: 27px;
+    right: 23px;
+    color: red;
 }
 
 #addForm {
@@ -334,4 +342,5 @@ footer p {
     }
     
 }
+
 
