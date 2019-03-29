@@ -60,7 +60,7 @@ successfully.
 The site also contains a Stats page demonstrating some visual data. This pie chart breaks down the number of recipes containing each dietary requirement. 
 It has been created using Chart JS and fits in with the UI / UX of the overall site.
 
-# Features Left to Implement
+### Features Left to Implement
 
 I would like to enable users to upload an image for their submitted smoothie recipe. This would give the site a more 'realisitc' feel 
 and provide a more attractive UI. Due to time constraints I have not implemented this as yet.

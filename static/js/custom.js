@@ -7,8 +7,8 @@ $(document).ready(function() {
     var addMethod = $('.add_method_button');
     var wrapper = $('.field_wrapper'); //Input field wrapper
     var insert_field = $('.method_field');
-    var fieldHTML = '<div class="row"><div class="input-field field_wrapper col s12"><i class="material-icons prefix">local_grocery_store</i><input type="text" name="ingredients" value="" required/></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>'; //New input field html 
-    var methodHTML = '<div class="row"><div class="input-field method_field col s12"><i class="material-icons prefix">description</i><input name="method" id="method" type="text" class="validate" required/><label for="icon_prefix">Method</label></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>';
+    var fieldHTML = '<div class="row"><div class="input-field field_wrapper col s12"><i class="material-icons prefix">local_grocery_store</i><input type="text" name="ingredients" value="" required/><label for="icon_prefix">Add Ingredient</label></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>'; //New input field html 
+    var methodHTML = '<div class="row"><div class="input-field method_field col s12"><i class="material-icons prefix">description</i><input name="method" id="method" type="text" class="validate" required/><label for="icon_prefix">Add Method Step</label></div><a href="javascript:void(0);" class="remove_button validate"><i class="material-icons prefix">clear</i></a></div>';
     var x = 1; //Initial field counter is 1
 
     //Once add button is clicked
