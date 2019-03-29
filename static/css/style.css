@@ -124,7 +124,7 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
 }
 
 .all_recipes_card .card {
-    min-height: 600px;
+    min-height: 620px;
 }
 
 #starRating {
@@ -209,8 +209,12 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
 
 .add_button i,
 .add_method_button i {
+
     position: relative;
-    left: 15px;
+    right: 15px;
+    float: right;
+    bottom: 60px;
+    font-size: 32px;
 }
 
 #addForm {

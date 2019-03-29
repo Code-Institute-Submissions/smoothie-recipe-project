@@ -41,7 +41,7 @@ def seasons():
 @app.route('/get_recipes')
 def get_recipes():
     return render_template('recipes.html',
-    recipes=mongo.db.recipes.find())
+    recipes=mongo.db.recipes.find({ '$query': {}, '$orderby': { '_id' : -1 } }))
     
 # ....FILTERS SUMMER SMOOTHIE RECIPES 
 
