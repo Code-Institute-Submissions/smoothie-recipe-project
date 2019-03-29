@@ -32,6 +32,7 @@ I would of course like to see the usual social media icons to accompany the webs
 These should be easy to find, stand out, but be in keeping with the design and feel of the website. 
 
 Wireframes can be found in the wireframes folder.
+Data Schema can be found in the data schema folder.
 
 ## Features
 
@@ -119,7 +120,7 @@ database were working correctly by live viewing mlab (see below).
 
 ### mlab
 
-Once mlab had been successfully set up and connected to my project (more detail on this), I added some recipes in manually as a starting
+Once mlab had been successfully set up and connected to my project (<a href="https://docs.mlab.com/"> more details</a>), I added some recipes in manually as a starting
 point. The function to display all recipes on the page was then tested frequently to ensure all recipes were displayed correctly.
 There were a few issues I came across at this point. including how to go about displaying ingredients in a listed format. My original
 code produced only individual letters of the ingredients, followed by a long continuous list. 
@@ -132,20 +133,30 @@ implemented with unordered list tags to produce the desired output.
 ### Deployment to Heroku 
 
 Open up heroku and create a new app. Select Deploy.
-In the command line login to Heroku using Heorku login command.
 
+In Settings:
 Set config vars:
 IP 0.0.0.0
 PORT 5000
 
-Set Secret Key to 'some_secret'
+In the CL 
+```heroku login```
+```heroku apps``` to check app is present
+```$ heroku git:clone -a smoothie-recipe```
+```sudo pip3 freeze --local > requirements.txt``` Create requirements file to ensure apps present for heroku to run
+```echo web: python run.py > Procfile``` Create the Procfile
+Git add . and commit followed by a push to Heroku
+```git push heroku master```
+```heroku ps:scale web=1``` scale app dynos for heroku
 
 Select More tab and click re-start all dynos
+
+The live version can be viewed <a href="https://smoothie-recipe.herokuapp.com/">here</a>. 
 
 
 ## Credits
 
-I spent a while trying to enable the following functions:
+I spent time on the following issues:
 1. Creating a card that successfully displayed ingredients and method from each recipe after submission to the database.
 2. Resizing the pie chart
 3. Iterating over Dietary Requirements so that the selected options are already in the input form when the user tries to edit a recipe - thanks to the good people at Code Institute for helping with this 
