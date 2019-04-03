@@ -141,12 +141,15 @@
     <main>
         <!--linked content inserted here-->
         <div class="container">
-            {% block content %} {% endblock %}
+            {% block content %} 
+            {% endblock %}
         </div>
         
         <!--Display flask flash messages -->
-        {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-        <div  class="row ">
+        {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+            {% for message in messages %}
+        <div class="row ">
             <div class="wrapper">   
                 <div id="flashMessage" class="col s12 m6 offset-m3 l4 offset-l4">
                     <p class="message">{{ message }}</p>
@@ -154,7 +157,9 @@
                 </div>
             </div> 
         </div>
-        {% endfor %} {% endif %} {% endwith %}
+            {% endfor %} 
+        {% endif %} 
+        {% endwith %}
     </main>
 
     <!--Footer-->
@@ -199,6 +204,44 @@
             $('.collapsible').collapsible();
             $('select').material_select();
             $('.button-collapse').sideNav();
+        });
+        
+    var myChart = document.getElementById('myChart').getContext('2d');
+        
+        //Global Options
+        Chart.defaults.global.defaultFontFamily = 'Amatic SC';
+        Chart.defaults.global.defaultFontSize = 16;
+        Chart.defaults.global.defaultFontColor = '#000';
+        
+        var dietChart = new Chart(myChart, {
+           type:'pie',
+           data:{
+               labels: {{data_labels|safe}},
+               datasets: [{
+                    label:'Dietary Requirement',
+                    data:{{data_values|safe}},
+                    hoverBorderColor: "#fff",
+                    backgroundColor:[
+                      '#3e95cd', '#8e5ea2','#3cba9f','#F5AA41','#c45850'
+                      ]
+               }]
+           },
+           options:{
+               title:{
+                   display:true,
+                   text: 'Dietary Requirements',
+                   fontSize:32
+               },
+               legend:{
+                   position:'top',
+               },
+               layout:{
+                   padding:{
+                       top:10,
+                       bottom: 10
+                   }
+               }
+           }
         });
     </script>
 </body>

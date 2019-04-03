@@ -137,24 +137,30 @@ The following steps to achieve this are as follows:
 Open up heroku and create a new app. Select Deploy.
 
 In Settings:
+
 Set config vars:
 IP 0.0.0.0
 PORT 5000
 
-In the CL 
+In the CL:
+
 ```heroku login```
+
 ```heroku apps``` to check app is present
+
 ```$ heroku git:clone -a smoothie-recipe```
+
 ```sudo pip3 freeze --local > requirements.txt``` Create requirements file to ensure apps present for heroku to run
+
 ```echo web: python run.py > Procfile``` Create the Procfile
-Git add . and commit followed by a push to Heroku
-```git push heroku master```
+
+```git push heroku master``` Git add . and commit followed by a push to Heroku
+
 ```heroku ps:scale web=1``` scale app dynos for heroku
 
 Select More tab and click re-start all dynos
 
 The live version can be viewed <a href="https://smoothie-recipe.herokuapp.com/">here</a>. 
-
 
 ## Credits
 

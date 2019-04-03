@@ -100,6 +100,7 @@ nav .brand-logo {
 
 .nav_btns {
     margin: 15px 5px 20px 15px;
+    text-align: center;
 }
 
 .nav_btns i {
@@ -128,7 +129,7 @@ ul#dropdown1.dropdown-content.dropdown-nested.active {
 }
 
 .all_recipes_card .card {
-    min-height: 620px;
+    height: 550px;
 }
 
 #starRating {
@@ -262,7 +263,6 @@ a.remove_button.validate {
 
 .chart_container {
     background: rgba(255, 255, 255, 0.9);
-    margin: 20px 10px;
 }
 
 
@@ -332,6 +332,13 @@ footer p {
 
 /*..................................Media queries*/
 
+@media (min-width: 550px) {
+    .all_recipes_card .card {
+    min-height: 640px;
+    }
+}
+
+
 @media (min-width: 767px) {
 
     #starRating {
@@ -343,6 +350,10 @@ footer p {
     #recipeInfo {
         position: relative;
         top: 0px;
+    }
+    
+    .all_recipes_card .card {
+    min-height: 740px;
     }
 }
 
@@ -363,8 +374,15 @@ footer p {
     .chart_container {
         position: relative;
         height: 75vh;
-        width: 80vw;
-        margin: 20px auto;
     }
+    
+      .all_recipes_card .card {
+        min-height: 670px;
+    }
+    
+    .nav_btns {
+        text-align: left;
+}
+
 
 }

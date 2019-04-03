@@ -242,7 +242,7 @@ def pie_chart():
         data_values.append(v)
         
     print("data_labels",json.dumps(data_labels), json.dumps(data_values))
-    return render_template('chart.html', data_labels=json.dumps(data_labels), data_values=json.dumps(data_values))
+    return render_template('graph.html', data_labels=json.dumps(data_labels), data_values=json.dumps(data_values))
 
 
 if __name__ == '__main__':
