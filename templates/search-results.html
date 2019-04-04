@@ -30,15 +30,13 @@
       </div>
 
       <div class="card-reveal">
-        <div class="">
-          <span class="card-title grey-text text-darken-4">Ingredients<i class="material-icons right">close</i></span>
-          <ul>
-            {% for ingredient in recipe.ingredients %}
-            <li><strong>{{ ingredient }}</strong></li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div>
+        <span class="card-title grey-text text-darken-4">Ingredients<i class="material-icons right">close</i></span>
+        <ul>
+          {% for ingredient in recipe.ingredients %}
+          <li><strong>{{ ingredient }}</strong></li>
+          {% endfor %}
+        </ul>
+        <div class="scroll">
           <h5>Method</h5>
           <ol>
             {% for method in recipe.method %}
