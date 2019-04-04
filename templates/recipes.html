@@ -1,10 +1,10 @@
 {% extends 'base.html'%} 
 {% block content %}
-<div class="row">
-  <div class="recipes_title">
-    <h3>All Smoothie Recipes</h3>
-  </div>
-  
+
+<h3>All Smoothie Recipes</h3>
+
+<div class="row"> 
+
   <!--Results shown for all Recipes in database-->
   
   {% for recipe in recipes %}
@@ -39,7 +39,7 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="">
+        <div class="scroll">
           <h5>Method</h5>
           <ol>
             {% for method in recipe.method %}

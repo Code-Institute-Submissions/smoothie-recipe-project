@@ -58,7 +58,7 @@ Part of the project brief was to ensure CRUD functions are demonstrated. The use
 successfully.
 
 The site also contains a Stats page demonstrating some visual data. This pie chart breaks down the number of recipes containing each dietary requirement. 
-It has been created using Chart JS and fits in with the UI / UX of the overall site.
+It has been created using Chart JS and fits in with the UI / UX of the overall site. Further research in to chart sizing for responsive design should be carried out.
 
 ### Features Left to Implement
 

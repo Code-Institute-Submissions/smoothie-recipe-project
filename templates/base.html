@@ -144,6 +144,9 @@
             {% block content %} 
             {% endblock %}
         </div>
+    </main>
+    
+    <section>
         
         <!--Display flask flash messages -->
         {% with messages = get_flashed_messages() %} 
@@ -160,7 +163,8 @@
             {% endfor %} 
         {% endif %} 
         {% endwith %}
-    </main>
+        
+    </section>
 
     <!--Footer-->
 
@@ -205,45 +209,8 @@
             $('select').material_select();
             $('.button-collapse').sideNav();
         });
-        
-    var myChart = document.getElementById('myChart').getContext('2d');
-        
-        //Global Options
-        Chart.defaults.global.defaultFontFamily = 'Amatic SC';
-        Chart.defaults.global.defaultFontSize = 16;
-        Chart.defaults.global.defaultFontColor = '#000';
-        
-        var dietChart = new Chart(myChart, {
-           type:'pie',
-           data:{
-               labels: {{data_labels|safe}},
-               datasets: [{
-                    label:'Dietary Requirement',
-                    data:{{data_values|safe}},
-                    hoverBorderColor: "#fff",
-                    backgroundColor:[
-                      '#3e95cd', '#8e5ea2','#3cba9f','#F5AA41','#c45850'
-                      ]
-               }]
-           },
-           options:{
-               title:{
-                   display:true,
-                   text: 'Dietary Requirements',
-                   fontSize:32
-               },
-               legend:{
-                   position:'top',
-               },
-               layout:{
-                   padding:{
-                       top:10,
-                       bottom: 10
-                   }
-               }
-           }
-        });
     </script>
+
 </body>
 
 </html>

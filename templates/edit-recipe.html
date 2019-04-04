@@ -2,6 +2,9 @@
 {% block content %}
 
 <h3>Edit Recipe</h3>
+
+<!--Edit Recipe Form-->
+
 <div class="row">
     <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12 edit_recipe_form">
         <div id="editForm" class="row">
@@ -15,6 +18,8 @@
                 <input id="author" name="author" type="text" class="validate" value="{{recipe.author}}">
                 <label for="icon_prefix">Author Name</label>
             </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">people_outline</i>
                 <input id="serves" name="serves" type="text" class="validate" value="{{recipe.serves}}">
@@ -33,6 +38,8 @@
                   {% endfor %}
                 </select>
             </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">timer</i>
                 <input id="time_taken" name="time_taken" type="text" class="validate" value="{{recipe.time_taken}}">
@@ -52,52 +59,54 @@
                 </select>
                 <label>Difficulty Rating</label>
             </div>
-            <div class="row">
-                <div class="input-field field_wrapper col s12">
-                    <i class="material-icons prefix">local_grocery_store</i> {% for ingred in recipe.ingredients %}
-                    <input type="text" name="ingredients" value="{{ ingred }}" />
-                    <label for="icon_prefix">Add Ingredient</label> {% endfor %}
-                </div>
-                <a href="javascript:void(0);" class="add_button validate"><i class="material-icons prefix">add</i></a>
+        </div>
+        <div class="row">
+            <div class="input-field field_wrapper col s12">
+                <i class="material-icons prefix">local_grocery_store</i> {% for ingred in recipe.ingredients %}
+                <input type="text" name="ingredients" value="{{ ingred }}" />
+                <label for="icon_prefix">Add Ingredient</label> {% endfor %}
             </div>
-            <div class="row">
-                <div class="input-field method_field col s12">
-                    <i class="material-icons prefix">description</i> {% for method in recipe.method %}
-                    <textarea name="method" id="method" class="materialize-textarea">{{ method }}</textarea>
-                    <label for="icon_prefix">Add Method Step</label> {% endfor %}
-                </div>
-                <a href="javascript:void(0);" class="add_method_button validate"><i class="material-icons prefix">add</i></a>
+            <a href="javascript:void(0);" class="add_button validate"><i class="material-icons prefix">add</i></a>
+        </div>
+        <div class="row">
+            <div class="input-field method_field col s12">
+                <i class="material-icons prefix">description</i> {% for method in recipe.method %}
+                <textarea name="method" id="method" class="materialize-textarea">{{ method }}</textarea>
+                <label for="icon_prefix">Add Method Step</label> {% endfor %}
             </div>
+            <a href="javascript:void(0);" class="add_method_button validate"><i class="material-icons prefix">add</i></a>
+        </div>
+        <div class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">grade</i>
                 <select name="star_rating_value">
-                     <option value="Rate Recipe" disabled >Rate this Recipe</option>
-                     {% for star in star_rating %}
-                         {% if star.star_rating_value == recipe.star_rating_value %}
-                      <option value="{{star.star_rating_value}}" selected>{{star.star_rating_value}}</option>
-                         {% else %}
-                      <option value="{{star.star_rating_value}}">{{star.star_rating_value}}</option>
-                         {% endif %}
-                     {% endfor %}               
-                </select>
+                         <option value="Rate Recipe" disabled >Rate this Recipe</option>
+                         {% for star in star_rating %}
+                             {% if star.star_rating_value == recipe.star_rating_value %}
+                          <option value="{{star.star_rating_value}}" selected>{{star.star_rating_value}}</option>
+                             {% else %}
+                          <option value="{{star.star_rating_value}}">{{star.star_rating_value}}</option>
+                             {% endif %}
+                         {% endfor %}               
+                    </select>
                 <label>Star Rating</label>
             </div>
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">local_dining</i>
                 <select multiple name="dietary_requirement_type">
-                    {% for diet in dietary_requirements %}
-                    <option value="{{diet.dietary_requirement_type}}" {% if  diet.dietary_requirement_type in recipe.dietary_requirement_type%}selected {% endif %}>{{diet.dietary_requirement_type}}</option>
-                    {% endfor %}
-                </select>
+                        {% for diet in dietary_requirements %}
+                        <option value="{{diet.dietary_requirement_type}}" {% if  diet.dietary_requirement_type in recipe.dietary_requirement_type%}selected {% endif %}>{{diet.dietary_requirement_type}}</option>
+                        {% endfor %}
+                    </select>
                 <label>Dietry Requirements</label>
             </div>
-            <div class="row">
-                <div class="">
-                    <button class="btn waves-effect waves-light add_recipe_btn" type="submit" name="action">Save Recipe
+        </div>
+        <div class="row">
+            <div class="">
+                <button class="btn waves-effect waves-light add_recipe_btn" type="submit" name="action">Save Recipe
                         <i class="material-icons right">playlist_add</i>
                     </button>
-                    <input class="btn waves-effect waves-light cancel_update" type="button" name="cancel" value="cancel" onClick="window.location.href='{{url_for('get_recipes')}}';" />
-                </div>
+                <input class="btn waves-effect waves-light cancel_update" type="button" name="cancel" value="cancel" onClick="window.location.href='{{url_for('get_recipes')}}';" />
             </div>
         </div>
     </form>
