@@ -97,7 +97,8 @@ contain longwinded Methods and so this was not priorortised in the project.
 Another issue I came across was the size of the chart on smaller screens. Although the chart rendered fine on most sizes, it did not seem to show 
 on mobiles. I found a work around by getting rid of the container, this meant putting chart.html in full html format rather than using the jinja template.
 
-The site has also been been viewed in firefox and explorer browsers, with no obvious differences. 
+The site has also been been viewed in firefox and explorer browsers. There seems to be an alignment issue with the add/minus ingredients/method buttons
+in Firefox which I am unable to change at this stage. 
 I sent the link to this project from heroku across to friends and family so they could check UI/UX using their devices and provide any feedback. One piece of 
 feedback included the position of the plus and cancel ingredients/method symbols on the add recipe form. I adjusted these to make UX/UI better.
 
@@ -113,7 +114,8 @@ The add/edit recipe forms use JS to create a new field with the click of the plu
 This created a few layout problems, but with careful re-orginasation of my divs, I was able to tidy this up.
 
 Functions in app.py were tested using print statements initially, in the console. I was also able to check functions for inserting in to the 
-database were working correctly by live viewing mlab (see below).
+database were working correctly by live viewing mlab (see below). Filter functions were tested frequently. User clicks on 'search by gluten free' 
+for example, only recipes with gluten free listed will appear on results page. This testing was applied for all filtered functions with no major issues.
 
 
 ### mlab
