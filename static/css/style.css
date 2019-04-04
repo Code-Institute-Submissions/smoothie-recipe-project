@@ -359,6 +359,11 @@ footer p {
     .home {
         margin-top: 90px;
     }
+    
+    .scroll {
+        height: 400px;
+        overflow: scroll;
+    }
 
 }
 
